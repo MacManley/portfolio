@@ -4,7 +4,7 @@ export default function About() {
       <header className="about-header">
         <div className="profile-section">
           <div className="profile-image">
-            <img src="/assets/nathan.jpeg" alt="Nathan Manley" />
+            <img src="./assets/nathan.jpeg" alt="Nathan Manley" />
           </div>
           <div className="profile-info">
             <h1>Nathan Manley</h1>
