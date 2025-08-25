@@ -1,0 +1,411 @@
+:root {
+  --bg: #0a0a0a;
+  --text: #ffffff;
+  --accent: #00bcd4;
+  --secondary: #1a1a1a;
+  --card-bg: #1e1e1e;
+  --border: #333333;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Container styling for the app */
+.app-container {
+  margin: 0 auto;
+  background: var(--bg);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Top Navigation */
+.top-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  padding: 15px 30px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #cccccc;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 20px; /* rounded corners */
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.nav-link.active {
+  background: var(--accent);
+  color: white;
+}
+
+/* Content area */
+.content {
+  padding-top: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* Header styling */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 40px 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #cccccc;
+  font-weight: 400;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  color: #aaaaaa;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Main section */
+.main-section {
+  min-height: 60vh;
+}
+
+/* Contact page styles */
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.contact-section {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.contact-section h3 {
+  color: var(--accent);
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.contact-item {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact-item a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #00d4ff;
+  text-decoration: underline;
+}
+
+/* About page styling */
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.about-header {
+  margin-bottom: 16px;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  padding: 30px;
+  background: var(--card-bg);
+  border-radius: 15px;
+  border: 1px solid var(--border);
+}
+
+
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info h1 {
+  margin-bottom: 10px;
+  font-size: 2.2rem;
+}
+
+.profile-info h2 {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.profile-info .intro-text {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.location {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.about-content {
+  line-height: 1.6;
+  color: #cccccc;
+}
+
+.about-content h3 {
+  color: var(--accent);
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.about-content ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.about-content li {
+  margin-bottom: 8px;
+}
+
+/* Filters styling */
+.filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.button-main {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  color: #cccccc;
+  padding: 13px 23px;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 600;    
+  line-height: 20px;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: box-shadow 0.5s ease;
+  min-width: 160px;
+  text-align: center;
+}
+
+.button-main:hover {
+  background-color: var(--accent);
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.projects-roundup {
+  padding: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 15px;
+  }
+  
+  .nav-link {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+  
+  .content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Contact Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  max-width: 400px;
+  width: 90%;
+  padding: 32px 24px 24px 24px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  color: #cccccc;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: #cccccc;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: var(--border);
+  color: white;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-form label {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: #fff;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.contact-form button[type="submit"] {
+  margin-top: 10px;
+}
+
+.thank-you {
+  text-align: center;
+  color: var(--accent);
+}
+
+.thank-you h3 {
+  margin-bottom: 8px;
+}
+
+.input-error {
+  border: 1.5px solid #ff4d4f !important;
+  background: #2a1818 !important;
+}
+
+.input-error-message {
+  color: #ff4d4f;
+  font-size: 0.95em;
+  margin-bottom: 4px;
+  margin-top: -8px;
+  display: block;
+}
