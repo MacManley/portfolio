@@ -13,7 +13,8 @@ import {
     SiCss3,
     SiAppstore,
     SiGoogleplay,
-    SiVite
+    SiVite,
+    SiTensorflow
   } from 'react-icons/si';
 
 import {
@@ -53,8 +54,8 @@ export const projects = [
     {
         id: 2,
         projectName: 'CanSat 2024',
-        technologyUsed: ['3D Printing', 'Fusion 360', 'ESP8266', 'Arduino', 'C++'],
-        role: 'Lead 3D Design, Lead 3D Printing, Assistant Builder',
+        technologyUsed: ['3D Printing', 'Fusion 360', 'ESP8266', 'Arduino', 'C++', 'Tensorflow', 'Python'],
+        role: 'Lead 3D Design, Lead 3D Printing, Lead ML Engineer',
         blurb: 'Glanmire Community College 2024 CanSat "Candromeda"',
         status: 0,
         links: [
@@ -101,7 +102,7 @@ export const projects = [
             {label: 'GT7 UDP Plotly Visualiser', url: 'https://github.com/MacManley/gt7-track-visualizer', site: 'Github'},
             {label: 'GT7 Sport Mode Leaderboard Scraper', url: 'https://github.com/MacManley/gt7-leaderboards', site: 'Github'}
         ]
-        // year: 2025
+        // year: 2024
     },
     {
         id: 6,
@@ -112,7 +113,7 @@ export const projects = [
         status: 2, //wip
         links: [
             // {label: 'App Store Link', url: '', site: 'App'},
-            // {label: 'Google Play Store Link', url: '', site: 'Play Store'}
+            // {label: 'Google Play Store Link', url: '', site: 'Play'}
         ]
         // year: 2025
     },
@@ -172,6 +173,7 @@ export const techIconMap = {
   'C++': <SiCplusplus color="#00599C" />,
   'C#': <TbBrandCSharp color="#9179E4" />,
   'OpenCV': <SiOpencv color="#5C3EE8" />,
+  'Tensorflow': <SiTensorflow color="#ff5e00ff" />,
   'Arduino': <SiArduino color="#00979D" />,
   'Blazor': <SiBlazor color="#512BD4" />,
   'React': <SiReact color="#61DAFB" />,
@@ -190,7 +192,7 @@ export const techIconMap = {
   'Youtube': <SiYoutube />,
   'LinkedIn': <SiLinkedin />,
   'App': <SiAppstore />,
-  'Play Store': <SiGoogleplay />
+  'Play': <SiGoogleplay />
 };
 
 export const statusMap = {
