@@ -48,6 +48,7 @@ export const projects = [
             {label: 'Gymificient Pitch', url: 'https://youtu.be/jycqwSAHBu0?feature=shared', site: 'Youtube'},
             {label: 'Gymificient Announcement Post', url: 'https://www.linkedin.com/posts/nathan-manley_over-the-last-6-weeks-of-patch-we-have-been-activity-7227266750562652160-L9se', site: 'LinkedIn'}
         ]
+        // year: 2024
     },
     {
         id: 2,
@@ -60,6 +61,7 @@ export const projects = [
             {label: 'CanSat 2024 Repository', url: 'https://github.com/MacManley/cansat/tree/main/2024' , site: 'Github'},
             {label: '', url: '', site: ''}
         ]
+        // year: 2024
     },
     {
         id: 3,
@@ -72,6 +74,7 @@ export const projects = [
             {label: 'CanSat 2023 Repository', url: 'https://github.com/MacManley/cansat/tree/main/2023', site: 'Github'},
             {label: '', url: '', site: ''}
         ]
+        // year: 2023
     },
 
     {
@@ -84,6 +87,7 @@ export const projects = [
         links: [
             {label: 'Website Repository', url: '', site: 'Github'},
         ]
+        // year: 2025
     },
     {
         id: 5,
@@ -97,6 +101,7 @@ export const projects = [
             {label: 'GT7 UDP Plotly Visualiser', url: 'https://github.com/MacManley/gt7-track-visualizer', site: 'Github'},
             {label: 'GT7 Sport Mode Leaderboard Scraper', url: 'https://github.com/MacManley/gt7-leaderboards', site: 'Github'}
         ]
+        // year: 2025
     },
     {
         id: 6,
@@ -109,10 +114,11 @@ export const projects = [
             // {label: 'App Store Link', url: '', site: 'App'},
             // {label: 'Google Play Store Link', url: '', site: 'Play Store'}
         ]
+        // year: 2025
     },
     {
         id: 7,
-        projectName: 'VEX Robotics 2023',
+        projectName: 'VEX Robotics GCC',
         technologyUsed: ['C++'],
         role: 'Lead Programmer, Assistant Builder',
         blurb: 'Glanmire Community College 2023 Vex Robotics challenger',
@@ -120,6 +126,7 @@ export const projects = [
         links: [
             {label: 'GCC VEX Robotics Repository', url: '', site: 'Github'},
         ]
+        // year: 2023
     }
     // {
     //     id: 100,
@@ -142,9 +149,18 @@ export const projects = [
       // {
     //     id: 3000,
     //     projectName: 'M.E.D.S',
-    //     technologyUsed: ['Arduino, C++, ESP8266'],
-    //     role: 'Lead Programmer',
+    //     technologyUsed: ['Arduino', 'C++', 'ESP8266'],
+    //     role: 'Lead Programmer, Assitant Build',
     //     blurb: 'A device that dispenses dementia patients medicine and make sure they take it on time',
+    //     status: 0
+    // },
+
+      // {
+    //     id: 3001,
+    //     projectName: 'Adaptive Smog Removal System',
+    //     technologyUsed: ['Arduino, C++],
+    //     role: 'Lead Programmer',
+    //     blurb: 'Adaptive system that monitors smoke/VOC levels and adaptively removes and filters particulates from the building',
     //     status: 0
     // },
     
