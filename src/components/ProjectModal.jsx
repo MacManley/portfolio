@@ -42,6 +42,10 @@ function ProjectModal({ isOpen, onClose, selectedProject }) {
                   <span className="role-text">{selectedProject.role}</span>
                   </div>
                 )}
+                <div>
+                  <span className="year-label">Year: </span>
+                  <span className="year-text">{Array.isArray(selectedProject.year) ? selectedProject.year.join(", ") : selectedProject.year}</span>
+                </div>
                 </div>
             )}
           </div>

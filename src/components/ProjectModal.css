@@ -63,7 +63,7 @@
     rgba(255, 255, 255, 0.02) 100%
   );
   border-radius: 18px 18px 0 0;
-  gap: 20px;
+  gap: 30px;
 }
 
 .modal-header h2 {
@@ -96,6 +96,18 @@
 .modal-role .role-text {
   color: #bbbbbb;
   font-size: 0.9rem;
+}
+
+.year-label {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+  
+}
+
+.year-text {
+  color: #bbbbbb;
+  font-size: 0.85rem;
 }
 
 .modal-close {

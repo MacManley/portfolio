@@ -14,7 +14,8 @@ import {
     SiAppstore,
     SiGoogleplay,
     SiVite,
-    SiTensorflow
+    SiTensorflow,
+    SiRaspberrypi
   } from 'react-icons/si';
 
 import {
@@ -32,7 +33,8 @@ import {
     TbSql,
     TbBrandCSharp,
     TbBadge3D,
-    TbProgress
+    TbProgress,
+    TbCubeSpark
 } from 'react-icons/tb';
 
 export const projects = [
@@ -41,101 +43,123 @@ export const projects = [
         projectName: 'Gymificient',
         technologyUsed: ['Python', 'C#', 'OpenCV', 'Blazor', 'Azure', 'SQL', 'CSS'],
         role: 'Back-end Engineer, Demo Day Pitcher',
-        blurb: 'Patch 2024 Project, providing actionable analytics for gym owners',
+        blurb: 'Patch 2024 Project, actionable analytics for gyms',
         status: 0,
         links: [
-            {label: 'Gymificient Website Repository', url: 'https://github.com/jakubjn/Gymificient', site: 'Github'},
-            {label: 'Gymificient Computer Vision Repository', url: 'https://github.com/MacManley/gymificientCV', site: 'Github'},
+            {label: 'Gymificient Website Repository', url: 'https://github.com/jakubjn/Gymificient', site: 'GitHub'},
+            {label: 'Gymificient Computer Vision Repository', url: 'https://github.com/MacManley/gymificientCV', site: 'GitHub'},
             {label: 'Gymificient Pitch', url: 'https://youtu.be/jycqwSAHBu0?feature=shared', site: 'Youtube'},
             {label: 'Gymificient Announcement Post', url: 'https://www.linkedin.com/posts/nathan-manley_over-the-last-6-weeks-of-patch-we-have-been-activity-7227266750562652160-L9se', site: 'LinkedIn'}
-        ]
-        // year: 2024
+        ],
+        year: 2024
+    },
+    {
+        id: 1000,
+        projectName: 'UCC Rocketry - Cerberus',
+        technologyUsed: ['Raspberry Pi', 'ESP32/ESP8266', 'C++', 'Arduino'],
+        role: 'CanSat Lead, Hardware Avionics Member',
+        blurb: 'UCC Rocketry and Space Exploration Society',
+        status: 1,
+        links: [],
+        year: [2025, 2026]
     },
     {
         id: 2,
-        projectName: 'CanSat 2024',
-        technologyUsed: ['3D Printing', 'Fusion 360', 'ESP8266', 'Arduino', 'C++', 'Tensorflow', 'Python'],
-        role: 'Lead 3D Design, Lead 3D Printing, Lead ML Engineer',
-        blurb: 'Glanmire Community College 2024 CanSat "Candromeda"',
+        projectName: 'GCC CanSat 2024',
+        technologyUsed: ['3D Printing', 'Fusion 360', 'ESP32/ESP8266', 'Arduino', 'C++', 'Tensorflow', 'Python'],
+        role: 'Lead 3D Design/Printing, Lead ML Engineer',
+        blurb: 'Glanmire Community College 2024 CanSat',
         status: 0,
         links: [
-            {label: 'CanSat 2024 Repository', url: 'https://github.com/MacManley/cansat/tree/main/2024' , site: 'Github'},
-            {label: '', url: '', site: ''}
-        ]
-        // year: 2024
+            {label: 'CanSat 2024 Repository', url: 'https://github.com/MacManley/cansat/tree/main/2024' , site: 'GitHub'},
+        ],
+        year: 2024
     },
     {
         id: 3,
-        projectName: 'CanSat 2023',
+        projectName: 'GCC CanSat 2023',
         technologyUsed: ['3D Printing', 'Arduino', 'C++'],
         role: 'Lead Programmer, Lead 3D Printing',
-        blurb: 'Glanmire Community College 2023 CanSat "Candromeda"',
+        blurb: 'Glanmire Community College 2023 CanSat',
         status: 0, // complete
         links: [
-            {label: 'CanSat 2023 Repository', url: 'https://github.com/MacManley/cansat/tree/main/2023', site: 'Github'},
-            {label: '', url: '', site: ''}
-        ]
-        // year: 2023
-    },
-
-    {
-        id: 4,
-        projectName: 'Portfolio Site',
-        technologyUsed: ['React', 'Javascript', 'CSS', 'Vite'],
-        role: '',
-        blurb: 'Website to showcase technical and practical experience',
-        status: 2, //wip
-        links: [
-            {label: 'Website Repository', url: '', site: 'Github'},
-        ]
-        // year: 2025
-    },
-    {
-        id: 5,
-        projectName: 'Game Telemetry Parsers',
-        technologyUsed: ['C++', 'ESP8266', 'Arduino', 'Python', 'Javascript'],
-        role: '',
-        blurb: 'Libraries for parsing UDP telemtry data from simulation games',
-        status: 1, //active
-        links: [
-            {label: 'ESP8266/ESP32 Libraries Collection', url: 'https://github.com/stars/MacManley/lists/esp32-esp8266-udp-telemetry', site: 'Github'},
-            {label: 'GT7 UDP Plotly Visualiser', url: 'https://github.com/MacManley/gt7-track-visualizer', site: 'Github'},
-            {label: 'GT7 Sport Mode Leaderboard Scraper', url: 'https://github.com/MacManley/gt7-leaderboards', site: 'Github'}
-        ]
-        // year: 2024
+            {label: 'CanSat 2023 Repository', url: 'https://github.com/MacManley/cansat/tree/main/2023', site: 'GitHub'},
+        ],
+        year: 2023
     },
     {
         id: 6,
         projectName: 'OnSite',
         technologyUsed: ['Swift'],
         role: '',
-        blurb: 'A mobile app for managing site photos and information',
+        blurb: 'A mobile app for site photos and information',
         status: 2, //wip
         links: [
             // {label: 'App Store Link', url: '', site: 'App'},
             // {label: 'Google Play Store Link', url: '', site: 'Play'}
-        ]
-        // year: 2025
+        ],
+        year: [2025, 2026]
     },
     {
-        id: 7,
-        projectName: 'VEX Robotics GCC',
-        technologyUsed: ['C++'],
-        role: 'Lead Programmer, Assistant Builder',
-        blurb: 'Glanmire Community College 2023 Vex Robotics challenger',
-        status: 0,
+        id: 5,
+        projectName: 'UDP Telemetry Parsers',
+        technologyUsed: ['C++', 'ESP32/ESP8266', 'Arduino', 'Python', 'Javascript'],
+        role: '',
+        blurb: 'Parsing UDP telemetry from racing video games',
+        status: 1, //active
         links: [
-            {label: 'GCC VEX Robotics Repository', url: '', site: 'Github'},
-        ]
-        // year: 2023
-    }
+            {label: 'ESP8266/ESP32 Libraries Collection', url: 'https://github.com/stars/MacManley/lists/esp32-esp8266-udp-telemetry', site: 'GitHub'},
+            {label: 'GT7 UDP Plotly Visualiser', url: 'https://github.com/MacManley/gt7-track-visualizer', site: 'GitHub'},
+            {label: 'GT7 Sport Mode Leaderboard Scraper', url: 'https://github.com/MacManley/gt7-leaderboards', site: 'GitHub'}
+        ],
+        year: [2023, 2024]
+    },
+    {
+        id: 4,
+        projectName: 'Portfolio Site',
+        technologyUsed: ['React', 'Javascript', 'CSS', 'Vite'],
+        role: '',
+        blurb: 'Website to showcase projects and experience',
+        status: 1, //ongoing
+        links: [
+            {label: 'Website Repository', url: '', site: 'GitHub'},
+        ],
+        year: 2025
+    },
+    {
+        id: 67,
+        projectName: 'Ender 3V2 AMS',
+        technologyUsed: ['Raspberry Pi', 'Fusion 360', '3D Printing'],
+        role: '',
+        blurb: "Custom Automatic Material System using Klipper",
+        status: 2, //wip
+        links: [
+        ],
+        year: 2026
+    },
+    // {
+    //     id: 7,
+    //     projectName: 'VEX Robotics GCC',
+    //     technologyUsed: ['C++'],
+    //     role: 'Lead Programmer, Assistant Builder',
+    //     blurb: 'Glanmire Community College 2023 Vex Robotics challenger',
+    //     status: 0,
+    //     links: [
+    //         {label: 'GCC VEX Robotics Repository', url: '', site: 'Github'},
+    //     ]
+    //     // year: 2023
+    // },
     // {
     //     id: 100,
-    //     projectName: 'LC Project 2025',
-    //     technologyUsed: ['Javascript'],
+    //     projectName: 'Leaving Certificate Project 2025',
+    //     technologyUsed: ['3D Printing', 'Solidworks', 'Javascript'],
     //     role: '',
-    //     blurb: 'A device for recycling batteries',
-    //     status: 0
+    //     blurb: 'A device for sorting and recycling batteries',
+    //     status: 0,
+    //     links: [
+    //         {}
+    //     ]
+    //     // year: 2025
     // },
 
      // {
@@ -164,6 +188,15 @@ export const projects = [
     //     blurb: 'Adaptive system that monitors smoke/VOC levels and adaptively removes and filters particulates from the building',
     //     status: 0
     // },
+
+    // {
+    //     id: 1111,
+    //     projectName: 'HackJunction 2025',
+    //     technologyUsed: [],
+    //     role: '',
+    //     blurb: 'Junction 2025 Hackathon Project',
+    //     status: ?
+    // }
     
 ];
 
@@ -183,22 +216,24 @@ export const techIconMap = {
   'Swift': <SiSwift color="#FFAC45" />,
   'CSS': <SiCss3 color="#00599C"/>,
   'Fusion 360': <SiAutocad color="#ed742e"/>,
+  'Solidworks': <TbCubeSpark color="#9e0000ff"/>,
   '3D Printing': <TbBadge3D />, // approximate; no official 3D print icon
-  'ESP8266': <FcElectronics /> , // no direct icon
+  'ESP32/ESP8266': <FcElectronics /> , // no direct icon
   'Complete': <FcCheckmark />,
   'Ongoing': <FcRadarPlot />,
   'Work In Progress': <TbProgress />,
-  'Github': <VscGithub />,
+  'GitHub': <VscGithub />,
   'Youtube': <SiYoutube />,
   'LinkedIn': <SiLinkedin />,
   'App': <SiAppstore />,
-  'Play': <SiGoogleplay />
+  'Play': <SiGoogleplay />,
+  'Raspberry Pi': < SiRaspberrypi color="#f70531" />
 };
 
 export const statusMap = {
     0: 'Complete',
     1: 'Ongoing',
-    2: 'Work In Progress',
+    2: 'Work In Progress'
   };
 
 export const statusLabels = ['Complete', 'Ongoing', 'Work In Progress'];

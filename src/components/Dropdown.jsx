@@ -41,8 +41,8 @@ function DropdownMenu({ selectedTechnology, setSelectedTechnology }) {
       {open && (
         <div className="dropdown-menu">
           {languages.sort().map((technology) => (
-          <div key={technology} className="dropdown-item" onClick={() => handleSelectedTechnology(technology)}><span>{technology}</span><span>  {techIconMap[technology] || 'n'}</span></div>
-))}
+          <div key={technology} className={`dropdown-item ${selectedTechnology == technology ? "dropdown-item-active" : ""}`} onClick={() => handleSelectedTechnology(technology)}><span>{technology}</span><span>     {techIconMap[technology] || 'n'}</span></div>
+        ))}
         </div>
       )}
     </div>

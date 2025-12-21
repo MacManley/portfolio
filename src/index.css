@@ -44,6 +44,15 @@ body {
   margin: 0 auto;
 }
 
+.nav-logo {
+  display: flex;
+  gap: 60px;
+  height: 30px;
+  width: 30px;
+  align-items: center;
+  margin-left: auto;
+}
+
 .nav-link {
   text-decoration: none;
   color: #cccccc;
@@ -73,6 +82,15 @@ body {
   padding-left: 30px;
   padding-right: 30px;
 }
+.rr {
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+.rr h6 {
+  margin: 5px;
+  text-align: center;
+  gap: 3px;
+}
 
 /* Header styling */
 header {
@@ -98,19 +116,19 @@ h2 {
 .intro-text {
   font-size: 1.1rem;
   color: #aaaaaa;
-  max-width: 600px;
+  max-width: 750px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
 /* Main section */
 .main-section {
-  min-height: 60vh;
+  min-height: 40vh;
 }
 
 /* Contact page styles */
 .contact-container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -118,14 +136,14 @@ h2 {
 .contact-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 30px;
   margin-top: 30px;
 }
 
 .contact-section {
   background: var(--card-bg);
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 30px;
   border: 1px solid var(--border);
 }
 
@@ -153,11 +171,36 @@ h2 {
   text-decoration: underline;
 }
 
+.contact-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.contact-icon {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    height: 45px;
+    background: var(--border);
+    border-radius: 30px;
+    transition: all 0.2s ease;
+    font-size: 1.1rem;
+    gap: 0.5rem;
+}
+
+.contact-icon:hover {
+    background: var(--accent);
+    transform: scale(1.05);
+}
+
 /* About page styling */
 .about-container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .about-header {
@@ -171,17 +214,17 @@ h2 {
   margin-bottom: 20px;
   padding: 30px;
   background: var(--card-bg);
-  border-radius: 15px;
+  border-radius: 38px;
   border: 1px solid var(--border);
 }
 
 
 .profile-image img {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--accent);
+  border: 4px solid var(--accent);
 
 }
 
@@ -207,7 +250,7 @@ h2 {
 .location {
   color: var(--accent);
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 1.05rem;
   margin: 0;
 }
 
@@ -252,7 +295,7 @@ h2 {
   cursor: pointer;
   border-radius: 30px;
   transition: box-shadow 0.5s ease;
-  min-width: 160px;
+  min-width: 180px;
   text-align: center;
 }
 

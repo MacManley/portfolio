@@ -10,8 +10,11 @@ function App() {
       <nav className="top-navigation">
         <div className="nav-links">
           <NavLink to="/" className="nav-link">About</NavLink>
-          <NavLink to="/projects" className="nav-link">Projects</NavLink>
+          <NavLink to="/projects" className="nav-link">Portfolio</NavLink>
           <NavLink to="/contact" className="nav-link">Contact</NavLink>
+          <div className="nav-logo">
+          <img src="./assets/favicon.png" alt="Nathan Manley 2026"/>
+        </div>
         </div>
       </nav>
       
@@ -23,6 +26,10 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
+      </div>
+      <div className="rr">
+      <h6>© 2025 • Nathan Manley</h6>
+      <h6>All Rights Reserved</h6>
       </div>
     </div>
   );

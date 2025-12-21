@@ -15,12 +15,12 @@ img {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 22px;
+    gap: 30px;
     max-width: 1500px;
 }
 
 .project-card {
-    width: 370px;
+    width: 390px;
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 30px;
@@ -88,20 +88,20 @@ img {
     padding: 18px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 9px;
 }
 
 .project-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 10px;
+    gap: 9px;
 }
 
 .project-header h3 {
     margin: 0;
     font-size: 1.2rem;
-    font-weight: 700;
+    font-weight: 750;
     color: var(--accent);
     line-height: 1.2;
     flex: 1;
@@ -110,9 +110,9 @@ img {
 .status-container {
     display: inline-block;
     padding: 3px 10px;
-    border-radius: 18px;
-    font-size: 0.7rem;
-    font-weight: 600;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 750;
     color: white;
     white-space: nowrap;
     text-transform: uppercase;
@@ -137,7 +137,7 @@ img {
 
 .role-label {
     color: var(--accent);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.85rem;
     white-space: nowrap;
 }
@@ -156,13 +156,14 @@ img {
 
 .tech-label {
     color: var(--accent);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.85rem;
 }
 
 .tech-icons {
     display: flex;
     flex-wrap: wrap;
+    padding-top: 5px;
     gap: 6px;
     align-items: center;
 }
@@ -171,10 +172,10 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     background: var(--border);
-    border-radius: 6px;
+    border-radius: 30px;
     transition: all 0.2s ease;
     font-size: 1.1rem;
 }
