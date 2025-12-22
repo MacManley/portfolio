@@ -17,13 +17,13 @@ export default function About() {
       <h2>About Me</h2>
       <div className="about-content">
         <p>
-          I'm a 19 year old engineering student currently studying at UCC with a passion for electronics, microcontrollers, and motorsport. 
+          I'm a 19 year old engineering student at UCC with a passion for electronics, microcontrollers, and motorsport. 
           My journey began at an early age, when I attended my first CoderDojo session at 8 years old.
         </p>
         
         <h3>Background</h3>
         <p>
-         I'm studying Engineering at UCC after a successful Leaving Certificate, building on my strong foundation in electronics, programming, and problem-solving. 
+         I'm currently studying Engineering at UCC after a successful Leaving Certificate, building on my strong foundation in electronics, programming, and problem-solving. 
          My experience spans business, software, and hardware projects, strengthening my ability to tackle a diverse range of challenges.
         </p>
 

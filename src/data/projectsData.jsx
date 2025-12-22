@@ -112,7 +112,7 @@ export const projects = [
             {label: 'GT7 UDP Plotly Visualiser', url: 'https://github.com/MacManley/gt7-track-visualizer', site: 'GitHub'},
             {label: 'GT7 Sport Mode Leaderboard Scraper', url: 'https://github.com/MacManley/gt7-leaderboards', site: 'GitHub'}
         ],
-        year: [2023, 2024]
+        year: [2023, 2024, 2025, 2026]
     },
     {
         id: 4,
@@ -124,7 +124,7 @@ export const projects = [
         links: [
             {label: 'Website Repository', url: '', site: 'GitHub'},
         ],
-        year: 2025
+        year: [2025, 2026]
     },
     {
         id: 67,
