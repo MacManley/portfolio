@@ -30,9 +30,9 @@ export default function Contact() {
         <div className="contact-section">
           <h3>Let's Connect</h3>
           <p>
-            I'm always interested in new opportunities, collaborations, and interesting projects.
+            I'm always interested in opportunities, collaborations, and interesting projects.
             Whether you have a question about my work, want to discuss potential projects,
-            or just want to say hello, feel free to reach out!
+            or just want to say hello, I'd love for you to reach out!
           </p>
         </div>
       </div>

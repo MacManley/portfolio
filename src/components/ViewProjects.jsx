@@ -33,8 +33,7 @@ function ProjectsView({ technologyFilter, statusFilter }) {
                         key={project.id} 
                         className="project-card"
                         onClick={() => handleProjectClick(project)}
-                        style={{ cursor: 'pointer' }}
-                    >
+                        style={{ cursor: 'pointer' }}>
                         <div className="project-image">
                             <img src={`/assets/${project.id}.png`} alt={project.projectName}/>
                             <div className="project-overlay">
