@@ -36,7 +36,7 @@ function ProjectsView({ technologyFilter, statusFilter }) {
                         style={{ cursor: 'pointer' }}
                     >
                         <div className="project-image">
-                            <img src={`./assets/${project.id}.png`} alt={project.projectName}/>
+                            <img src={`/assets/${project.id}.png`} alt={project.projectName}/>
                             <div className="project-overlay">
                                 <span className="view-details">View</span>
                             </div>
