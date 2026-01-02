@@ -43,7 +43,7 @@ export const projects = [
         projectName: 'Gymificient',
         technologyUsed: ['Python', 'C#', 'OpenCV', 'Blazor', 'Azure', 'SQL', 'CSS'],
         role: 'Back-end Engineer, Demo Day Pitcher',
-        blurb: 'Patch 2024 Project, actionable analytics for gyms',
+        blurb: 'Patch 2024, actionable analytics for gyms',
         status: 0,
         links: [
             {label: 'Gymificient Website Repository', url: 'https://github.com/jakubjn/Gymificient', site: 'GitHub'},

@@ -1,6 +1,10 @@
 import { useState } from 'react';
-import "../components/ViewProjects.css"
-import {techIconMap} from "../data/projectsData.jsx"
+import "../components/ViewProjects.css";
+import {techIconMap} from "../data/projectsData.jsx";
+import { Document, Page, pdfjs } from "react-pdf";
+import pdfWorker from "pdfjs-dist/build/pdf.worker.min?url";
+
+pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export default function Contact() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -8,6 +12,21 @@ export default function Contact() {
   const [emailTouched, setEmailTouched] = useState(false);
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const isEmailValid = emailRegex.test(email);
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [showModal, setShowModal] = useState(false);
+
+  function onDocLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+  }
+
+  function nextPage() {
+  setPageNumber((prev) =>
+    numPages ? Math.min(prev + 1, numPages) : prev
+  );}
+  function prevPage() {
+  setPageNumber((prev) => Math.max(prev - 1, 1));
+  }
 
   return (
     <div className="contact-container">
@@ -28,14 +47,43 @@ export default function Contact() {
           </div>
         </div>
         <div className="contact-section">
-          <h3>Let's Connect</h3>
-          <p>
-            I'm always interested in opportunities, collaborations, and interesting projects.
-            Whether you have a question about my work, want to discuss potential projects,
-            or just want to say hello, I'd love for you to reach out!
-          </p>
+          <div className="contact-item">
+            <h3>My CV</h3>
+            <button className="button-main" onClick={() => setShowModal(true)}>
+            View my CV here
+            </button>
+            {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button className="modal-close" onClick={() => setShowModal(false)}>×</button>
+            <div className="pdf-controls">
+              <button
+          className="button-main"
+          onClick={prevPage}
+          disabled={pageNumber <= 1}>◀ Previous Page</button>
+        <button
+          className="button-main"
+          onClick={nextPage}
+          disabled={numPages && pageNumber >= numPages}>Next Page ▶</button>
+          <a
+          href="/assets/cv.pdf"
+          download
+          className="button-main pdf-download-btn">⬇ Download CV</a>
+
+          <span>Page {pageNumber} of {numPages}</span>
+            </div>
+            <Document file="/assets/cv.pdf" onLoadSuccess={onDocLoadSuccess}>
+              <div className="pdf-page-wrapper">
+                <Page pageNumber={pageNumber} renderTextLayer={false} renderAnnotationLayer={false} />
+              </div>
+            </Document>
+          </div>
+        </div>
+      )}
+          </div>
         </div>
       </div>
+      
       {modalOpen && (
         <div className="modal-overlay" onClick={() => setModalOpen(false)}>
           <div className="modal-content" onClick={e => e.stopPropagation()} style={{maxWidth: 400}}>
