@@ -74,7 +74,7 @@ export default function Contact() {
             </div>
             <Document file="/assets/cv.pdf" onLoadSuccess={onDocLoadSuccess}>
               <div className="pdf-page-wrapper">
-                <Page pageNumber={pageNumber} renderTextLayer={false} renderAnnotationLayer={false} />
+                <Page pageNumber={pageNumber} renderTextLayer={false} renderAnnotationLayer={false} width={window.innerWidth < 480 ? 300 : 600} />
               </div>
             </Document>
           </div>

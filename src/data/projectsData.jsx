@@ -106,13 +106,13 @@ export const projects = [
         technologyUsed: ['C++', 'ESP32/ESP8266', 'Arduino', 'Python', 'Javascript'],
         role: '',
         blurb: 'Parsing UDP telemetry from racing video games',
-        status: 1, //active
+        status: 0,
         links: [
             {label: 'ESP8266/ESP32 Libraries Collection', url: 'https://github.com/stars/MacManley/lists/esp32-esp8266-udp-telemetry', site: 'GitHub'},
             {label: 'GT7 UDP Plotly Visualiser', url: 'https://github.com/MacManley/gt7-track-visualizer', site: 'GitHub'},
             {label: 'GT7 Sport Mode Leaderboard Scraper', url: 'https://github.com/MacManley/gt7-leaderboards', site: 'GitHub'}
         ],
-        year: [2023, 2024, 2025, 2026]
+        year: [2023, 2024, 2025]
     },
     {
         id: 4,
