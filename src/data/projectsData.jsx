@@ -191,11 +191,13 @@ export const projects = [
 
     // {
     //     id: 1111,
-    //     projectName: 'HackJunction 2025',
+    //     projectName: 'HackEurope 2026',
     //     technologyUsed: [],
     //     role: '',
-    //     blurb: 'Junction 2025 Hackathon Project',
-    //     status: ?
+    //     blurb: 'HackEurope 2026 Hackathon Project',
+    //     status: 0,
+    //     links: [],
+    //     year: 2026
     // }
     
 ];
