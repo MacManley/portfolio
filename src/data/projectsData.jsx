@@ -15,13 +15,15 @@ import {
     SiGoogleplay,
     SiVite,
     SiTensorflow,
-    SiRaspberrypi
+    SiRaspberrypi,
+    SiClaude
   } from 'react-icons/si';
 
 import {
     FcElectronics,
     FcCheckmark,
-    FcRadarPlot
+    FcRadarPlot,
+    FcGlobe
 } from 'react-icons/fc';
 
 import { 
@@ -39,6 +41,31 @@ import {
 
 export const projects = [
     {
+        id: 4,
+        projectName: 'HackEurope 2026',
+        technologyUsed: ['React', 'Python', 'Vite', 'Claude'],
+        role: 'API Developer, Backend Developer',
+        blurb: 'HackEurope 2026 Hackathon Project',
+        status: 0,
+        links: [
+            {label: 'Website', url: 'https://windsite.cloud', site: 'Web'},
+            {label: 'Devpost', url: 'https://devpost.com/software/windsite?ref_content=user-portfolio&ref_feature=in_progress', site: 'Web'},
+            {label: 'Website Repository', url: 'https://github.com/MacManley/windsite.cloud', site: 'GitHub'},
+            {label: 'Backend', url: 'https://github.com/MacManley/windsite-analysis', site: 'GitHub'}
+        ],
+        year: 2026
+    },
+    {
+        id: 1000,
+        projectName: 'UCC Rocketry - Cerberus',
+        technologyUsed: ['Raspberry Pi', 'ESP32/ESP8266', 'C++', 'Arduino'],
+        role: 'CanSat Lead, Hardware Avionics Member',
+        blurb: 'UCC Rocketry and Space Exploration Society',
+        status: 1,
+        links: [],
+        year: [2025, 2026]
+    },
+    {
         id: 1,
         projectName: 'Gymificient',
         technologyUsed: ['Python', 'C#', 'OpenCV', 'Blazor', 'Azure', 'SQL', 'CSS'],
@@ -52,16 +79,6 @@ export const projects = [
             {label: 'Gymificient Announcement Post', url: 'https://www.linkedin.com/posts/nathan-manley_over-the-last-6-weeks-of-patch-we-have-been-activity-7227266750562652160-L9se', site: 'LinkedIn'}
         ],
         year: 2024
-    },
-    {
-        id: 1000,
-        projectName: 'UCC Rocketry - Cerberus',
-        technologyUsed: ['Raspberry Pi', 'ESP32/ESP8266', 'C++', 'Arduino'],
-        role: 'CanSat Lead, Hardware Avionics Member',
-        blurb: 'UCC Rocketry and Space Exploration Society',
-        status: 1,
-        links: [],
-        year: [2025, 2026]
     },
     {
         id: 2,
@@ -91,9 +108,9 @@ export const projects = [
         id: 6,
         projectName: 'OnSite',
         technologyUsed: ['Swift'],
-        role: '',
+        role: 'Founder',
         blurb: 'A mobile app for site photos and information',
-        status: 2, //wip
+        status: 1,
         links: [
             // {label: 'App Store Link', url: '', site: 'App'},
             // {label: 'Google Play Store Link', url: '', site: 'Play'}
@@ -114,18 +131,18 @@ export const projects = [
         ],
         year: [2023, 2024, 2025]
     },
-    {
-        id: 4,
-        projectName: 'Portfolio Site',
-        technologyUsed: ['React', 'Javascript', 'CSS', 'Vite'],
-        role: '',
-        blurb: 'Website to showcase projects and experience',
-        status: 1, //ongoing
-        links: [
-            {label: 'Website Repository', url: '', site: 'GitHub'},
-        ],
-        year: [2025, 2026]
-    },
+    // {
+    //     id: 1111,
+    //     projectName: 'Portfolio Site',
+    //     technologyUsed: ['React', 'Javascript', 'CSS', 'Vite'],
+    //     role: '',
+    //     blurb: 'Website to showcase projects and experience',
+    //     status: 1, //ongoing
+    //     links: [
+    //         {label: 'Website Repository', url: '', site: 'GitHub'},
+    //     ],
+    //     year: [2025, 2026]
+    // },
     {
         id: 67,
         projectName: 'Ender 3V2 AMS',
@@ -188,18 +205,6 @@ export const projects = [
     //     blurb: 'Adaptive system that monitors smoke/VOC levels and adaptively removes and filters particulates from the building',
     //     status: 0
     // },
-
-    // {
-    //     id: 1111,
-    //     projectName: 'HackEurope 2026',
-    //     technologyUsed: [],
-    //     role: '',
-    //     blurb: 'HackEurope 2026 Hackathon Project',
-    //     status: 0,
-    //     links: [],
-    //     year: 2026
-    // }
-    
 ];
 
 export const techIconMap = {
@@ -209,6 +214,7 @@ export const techIconMap = {
   'C#': <TbBrandCSharp color="#9179E4" />,
   'OpenCV': <SiOpencv color="#5C3EE8" />,
   'Tensorflow': <SiTensorflow color="#ff5e00ff" />,
+  'Claude': <SiClaude color="#DE7356"/>,
   'Arduino': <SiArduino color="#00979D" />,
   'Blazor': <SiBlazor color="#512BD4" />,
   'React': <SiReact color="#61DAFB" />,
@@ -223,6 +229,7 @@ export const techIconMap = {
   'ESP32/ESP8266': <FcElectronics /> , // no direct icon
   'Complete': <FcCheckmark />,
   'Ongoing': <FcRadarPlot />,
+  'Web': <FcGlobe />,
   'Work In Progress': <TbProgress />,
   'GitHub': <VscGithub />,
   'Youtube': <SiYoutube />,

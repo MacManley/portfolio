@@ -23,7 +23,8 @@ export default function About() {
         
         <h3>Background</h3>
         <p>
-         I'm currently studying Engineering at UCC after a successful Leaving Certificate, building on my strong foundation in electronics, programming, and problem-solving. 
+         I'm currently studying Engineering at UCC after a successful Leaving Certificate, for which I received the CETB Dick Langford Leaving Certificate Award for my exceptional results.
+         Through studying engineering, I'm building on my strong foundation in electronics, programming, and problem-solving. 
          My experience spans business, software, and hardware projects, strengthening my ability to tackle a diverse range of challenges.
         </p>
 
