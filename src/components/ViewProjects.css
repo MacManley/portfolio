@@ -40,6 +40,7 @@ img {
     border-radius: 52px;
     margin: 0 auto;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .project-row {
@@ -48,10 +49,12 @@ img {
     justify-content: center;
     gap: 30px;
     max-width: 1200px;
+    width: 100%;
+    margin: 0;
 }
 
 .project-card {
-    width: 363px;
+    width: 360px;
     box-sizing: border-box;
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -320,6 +323,11 @@ img {
     .projects-header {
         padding: 0;
         margin: 0 auto;
+    }
+
+    .project-section {
+        padding: 24px 16px 48px;
+        border-radius: 36px;
     }
 
     .project-card {

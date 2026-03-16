@@ -55,8 +55,8 @@ export default function Contact() {
         <h1 className="page-title">Contact</h1>
         <p className="page-description">
           Whether it's a project, partnership, or just a quick question, I'm
-          always open to a new challenge. Share a bit about what you're building
-          and I will respond promptly.
+          always open to a new challenge. Share what you're building
+          and I will respond.
         </p>
       </div>
 
@@ -65,9 +65,9 @@ export default function Contact() {
           <div>
             <h3>Reach Out Directly</h3>
             <p>
-              From hackathons to embedded systems, I've helped teams ship reliable
-              products across hardware, software, and AI. Tap a link to see the work on
-              display or send a short note.
+              From hackathons to embedded systems, I've helped ship reliable
+              projects across hardware, software, and AI. Click the links to see the work on
+              display or send a DM.
             </p>
           </div>
 
@@ -91,7 +91,8 @@ export default function Contact() {
         <section className="contact-card cv-card">
           <div className="cv-header">
             <h3>CV & Track Record</h3>
-            <p>Grab the latest CV, jump straight into the PDF viewer or download it to share.</p>
+            
+            <p>Grab my latest CV, jump into PDF view or download it.</p>
           </div>
 
           <div className="cv-actions">
@@ -99,7 +100,7 @@ export default function Contact() {
               View CV
             </button>
             <a className="button-main button-secondary" href="/assets/cv.pdf" download>
-              Download PDF
+              Download CV (PDF)
             </a>
           </div>
 
@@ -110,21 +111,21 @@ export default function Contact() {
             </div>
             <div className="stat-block">
               <span className="stat-value">20+</span>
-              <span className="stat-label">Projects shipped</span>
+              <span className="stat-label">Projects</span>
             </div>
           </div>
         </section>
 
         <section className="contact-card highlight-card">
-          <h3>Expect thoughtful answers</h3>
+          <h3>Expect a response</h3>
           <p>
-            Every message receives a quick reply, ideally within one business day.
-            Need to sync? Lay out what you&apos;re building, available times, and the
-            most relevant tech stack.
+            I will respond to any queries within 48 hours.
+            I'll see how I can help, what I want to hear is:
           </p>
           <ul className="highlight-list">
-            <li>Clear timelines and follow-ups</li>
+            <li>Clear timelines</li>
             <li>Built prototypes, not just code</li>
+            <li>Realistic expectations</li>
           </ul>
           <button className="button-main button-alt" onClick={openContactModal}>
             Start the conversation
@@ -133,12 +134,19 @@ export default function Contact() {
       </div>
 
       {showModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <button className="modal-close" onClick={() => setShowModal(false)}>
-              ×
-            </button>
-            <div className="pdf-controls">
+        <div className="modal-overlay cv-overlay">
+          <div className="modal-content cv-modal">
+            <div className="cv-modal-top">
+              <div>
+                <p className="cv-eyebrow">Curriculum Vitae</p>
+                <h2 className="cv-title">CV Preview</h2>
+                <p className="cv-subtitle">Flip through the PDF or download the full copy.</p>
+              </div>
+              <button className="modal-close" onClick={() => setShowModal(false)}>
+                ×
+              </button>
+            </div>
+            <div className="cv-toolbar">
               <button
                 className="button-main"
                 onClick={prevPage}
@@ -153,23 +161,25 @@ export default function Contact() {
               >
                 Next Page ▶
               </button>
-              <a href="/assets/cv.pdf" download className="button-main pdf-download-btn" >
+              <a href="/assets/cv.pdf" download className="button-main pdf-download-btn">
                 ⬇ Download CV
               </a>
-              <span>
+              <span className="cv-page-indicator">
                 Page {pageNumber} of {numPages}
               </span>
             </div>
-            <Document file="/assets/cv.pdf" onLoadSuccess={onDocLoadSuccess}>
-              <div className="pdf-page-wrapper">
-                <Page
-                  pageNumber={pageNumber}
-                  renderTextLayer={false}
-                  renderAnnotationLayer={false}
-                  width={window.innerWidth < 480 ? 300 : 600}
-                />
-              </div>
-            </Document>
+            <div className="cv-viewer">
+              <Document file="/assets/cv.pdf" onLoadSuccess={onDocLoadSuccess}>
+                <div className="pdf-page-wrapper">
+                  <Page
+                    pageNumber={pageNumber}
+                    renderTextLayer={false}
+                    renderAnnotationLayer={false}
+                    width={window.innerWidth < 480 ? 300 : 600}
+                  />
+                </div>
+              </Document>
+            </div>
           </div>
         </div>
       )}
