@@ -73,8 +73,8 @@ export const projects = [
         blurb: 'Patch 2024, actionable analytics for gyms',
         status: 0,
         links: [
+            {label: 'Gymificient CV Repository', url: 'https://github.com/MacManley/gymificientCV', site: 'GitHub'},
             {label: 'Gymificient Website Repository', url: 'https://github.com/jakubjn/Gymificient', site: 'GitHub'},
-            {label: 'Gymificient Computer Vision Repository', url: 'https://github.com/MacManley/gymificientCV', site: 'GitHub'},
             {label: 'Gymificient Pitch', url: 'https://youtu.be/jycqwSAHBu0?feature=shared', site: 'Youtube'},
             {label: 'Gymificient Announcement Post', url: 'https://www.linkedin.com/posts/nathan-manley_over-the-last-6-weeks-of-patch-we-have-been-activity-7227266750562652160-L9se', site: 'LinkedIn'}
         ],
@@ -125,7 +125,7 @@ export const projects = [
         blurb: 'Parsing UDP telemetry from racing video games',
         status: 0,
         links: [
-            {label: 'ESP8266/ESP32 Libraries Collection', url: 'https://github.com/stars/MacManley/lists/esp32-esp8266-udp-telemetry', site: 'GitHub'},
+            {label: 'Libraries Collection', url: 'https://github.com/stars/MacManley/lists/esp32-esp8266-udp-telemetry', site: 'GitHub'},
             {label: 'GT7 UDP Plotly Visualiser', url: 'https://github.com/MacManley/gt7-track-visualizer', site: 'GitHub'},
             {label: 'GT7 Sport Mode Leaderboard Scraper', url: 'https://github.com/MacManley/gt7-leaderboards', site: 'GitHub'}
         ],

@@ -4,26 +4,37 @@ import './ProjectModal.css';
 import { techIconMap } from '../data/projectsData';
 
 
-function ProjectModal({ isOpen, onClose, selectedProject }) {
+function ProjectModal({ isOpen, onClose, selectedProject, prefetchedMarkdown }) {
   const [markdownContent, setMarkdownContent] = useState('');
 
   useEffect(() => {
-    if (isOpen && selectedProject) {
-      // Load the markdown file based on project ID
-      fetch(`./data/${selectedProject.id}.md`)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Markdown file not found');
-          }
-          return response.text();
-        })
-        .then(content => setMarkdownContent(content))
-        .catch(error => {
-          console.error('Error loading markdown:', error);
-          setMarkdownContent('# Project Details\n\nAn error occurred loading the markdown file, it is probably my dodgy code! Please refresh the page!');
-        });
+    if (!isOpen) {
+      setMarkdownContent('');
+      return;
     }
-  }, [isOpen, selectedProject]);
+
+    if (!selectedProject) {
+      return;
+    }
+
+    if (prefetchedMarkdown) {
+      setMarkdownContent(prefetchedMarkdown);
+      return;
+    }
+
+    fetch(`./data/${selectedProject.id}.md`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Markdown file not found');
+        }
+        return response.text();
+      })
+      .then(content => setMarkdownContent(content))
+      .catch(error => {
+        console.error('Error loading markdown:', error);
+        setMarkdownContent('# Project Details\n\nAn error occurred loading the markdown file, it is probably my dodgy code! Please refresh the page!');
+      });
+  }, [isOpen, selectedProject, prefetchedMarkdown]);
 
   if (!isOpen) return null;
 

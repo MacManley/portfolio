@@ -9,13 +9,10 @@ function Status({ selectedStatus, setSelectedStatus }) {
         {statusLabels.map((state, index) => (
             <div className="dropdown" key={state}>
             <button
-            className="button-main"
+            className={`button-main filter-pill ${selectedStatus === state ? 'filter-pill-active' : ''}`}
             onClick={() =>
               setSelectedStatus(selectedStatus === state ? null : state)
             }
-            style={{
-              backgroundColor: selectedStatus === state ? statusColorMap[index] : "black",
-            }}
           >
                 <span>{state}</span><span> {techIconMap[state]}</span></button>
             </div>

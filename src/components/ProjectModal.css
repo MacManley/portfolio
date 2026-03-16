@@ -10,6 +10,7 @@
   align-items: center;
   z-index: 1000;
   backdrop-filter: blur(5px);
+  animation: overlayFade 0.35s ease-out;
 }
 
 .project-links {
@@ -26,17 +27,26 @@
   overflow-y: auto;
   position: relative;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
-  animation: fadeInUp 0.3s ease-out;
+  animation: modalPop 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@keyframes fadeInUp {
+@keyframes modalPop {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(20px) scale(0.96);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes overlayFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 

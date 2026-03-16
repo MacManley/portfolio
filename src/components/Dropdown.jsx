@@ -34,14 +34,17 @@ function DropdownMenu({ selectedTechnology, setSelectedTechnology }) {
 
   return (
     <div className="dropdown" ref={menuRef}>
-      <button className="button-main" onClick={() => setOpen(!open)}>
+      <button
+        className={`button-main filter-pill ${open || selectedTechnology ? 'filter-pill-active' : ''}`}
+        onClick={() => setOpen(!open)}
+      >
         <span>Technologies</span><span> <TbFilterFilled color="#FFEE8C"/></span>
       </button>
 
       {open && (
         <div className="dropdown-menu">
           {languages.sort().map((technology) => (
-          <div key={technology} className={`dropdown-item ${selectedTechnology == technology ? "dropdown-item-active" : ""}`} onClick={() => handleSelectedTechnology(technology)}><span>{technology}</span><span>     {techIconMap[technology] || 'n'}</span></div>
+          <div key={technology} className={`dropdown-item ${selectedTechnology == technology ? "dropdown-item-active" : ""}`} onClick={() => handleSelectedTechnology(technology)}><span>{technology}</span><span>{techIconMap[technology] || 'n'}</span></div>
         ))}
         </div>
       )}

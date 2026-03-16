@@ -8,7 +8,15 @@ function Projects() {
   const [selectedTechnology, setSelectedTechnology] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState(null);
    return ( 
-   <div>
+   <div className="projects-page">
+    <div className="projects-header page-header">
+       <p className="page-eyebrow">Built To Ship</p>
+       <h1 className="page-title">Projects</h1>
+       <p className="page-description">
+         A snapshot of software, hardware, and AI builds across hackathons,
+         student engineering, and personal product work.
+       </p>
+     </div>
      <div className="filters">
        <div className="filters-row">
          <DropdownMenu selectedTechnology={selectedTechnology}
