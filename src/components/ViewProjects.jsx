@@ -143,11 +143,25 @@ function ProjectsView({ technologyFilter, statusFilter }) {
     const loadingPromises = useRef({});
 
         const formatYearLabel = (year) => {
-                if (Array.isArray(year)) {
-                        const [first, last] = year;
-                        return first === last ? first : `${first} – ${last}`;
+            if (Array.isArray(year)) {
+                if (year.length === 0) {
+                    return '';
                 }
-                return year;
+
+                if (year.length === 1) {
+                    return year[0];
+                }
+
+                if (year.length === 2) {
+                    const [first, last] = year;
+                    return first === last ? first : `${first}-${last}`;
+                }
+
+                const [first, second, ...rest] = year;
+                const firstRange = first === second ? first : `${first}-${second}`;
+                return [firstRange, ...rest].join(', ');
+            }
+            return year;
         };
 
           const filteredProjects = projects.filter((project) => {
@@ -205,6 +219,9 @@ function ProjectsView({ technologyFilter, statusFilter }) {
 
     const closeModal = () => {
         setIsModalOpen(false);
+    };
+
+    const handleModalCloseComplete = () => {
         setSelectedProject(null);
     };
     
@@ -271,6 +288,7 @@ function ProjectsView({ technologyFilter, statusFilter }) {
             <ProjectModal
                 isOpen={isModalOpen}
                 onClose={closeModal}
+                onCloseComplete={handleModalCloseComplete}
                 selectedProject={selectedProject}
                 prefetchedMarkdown={selectedProject ? markdownCache[selectedProject.id] : undefined}
             />

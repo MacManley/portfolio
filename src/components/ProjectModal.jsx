@@ -4,12 +4,50 @@ import './ProjectModal.css';
 import { techIconMap } from '../data/projectsData';
 
 
-function ProjectModal({ isOpen, onClose, selectedProject, prefetchedMarkdown }) {
+const CLOSE_ANIMATION_MS = 300;
+
+function ProjectModal({ isOpen, onClose, onCloseComplete, selectedProject, prefetchedMarkdown }) {
   const [markdownContent, setMarkdownContent] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsVisible(true);
+      setIsClosing(false);
+      return undefined;
+    }
+
+    if (isVisible) {
+      setIsClosing(true);
+      const timeoutId = window.setTimeout(() => {
+        setIsClosing(false);
+        setIsVisible(false);
+        setMarkdownContent('');
+        if (typeof onCloseComplete === 'function') {
+          onCloseComplete();
+        }
+      }, CLOSE_ANIMATION_MS);
+
+      return () => window.clearTimeout(timeoutId);
+    }
+
+    return undefined;
+  }, [isOpen, isVisible, onCloseComplete]);
+
+  useEffect(() => {
+    if (typeof document === 'undefined') {
+      return undefined;
+    }
+
+    document.body.style.overflow = isVisible ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isVisible]);
 
   useEffect(() => {
     if (!isOpen) {
-      setMarkdownContent('');
       return;
     }
 
@@ -36,11 +74,11 @@ function ProjectModal({ isOpen, onClose, selectedProject, prefetchedMarkdown }) 
       });
   }, [isOpen, selectedProject, prefetchedMarkdown]);
 
-  if (!isOpen) return null;
+  if (!isVisible) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
+    <div className={`modal-overlay${isClosing ? ' closing' : ''}`} onClick={onClose}>
+      <div className={`modal-content${isClosing ? ' closing' : ''}`} onClick={e => e.stopPropagation()}>
         <div className="modal-header">
           <div className="modal-header-content">
             <h1>{selectedProject.projectName}</h1>

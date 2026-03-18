@@ -34,7 +34,7 @@ ehthumbs.db
 
 node_modules/.cache/
 
-
+.venv
 .env
 .env.local
 .env.*

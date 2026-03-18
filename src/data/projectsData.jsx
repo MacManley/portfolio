@@ -56,6 +56,18 @@ export const projects = [
         year: 2026
     },
     {
+        id: 8,
+        projectName: 'Remento',
+        technologyUsed: ['Swift', 'Javascript'],
+        role: 'Frontend Developer',
+        blurb: 'Catching and monitoring early-stage dementia.',
+        status: 1,
+        links: [
+            {label: '2x Hackathon Winner', url: 'https://www.linkedin.com/posts/nathan-manley_amped-to-announce-remento-won-best-pitch-activity-7431676671654645760-XO68', site: 'Web'}
+        ],
+        year: 2026
+    },
+    {
         id: 1000,
         projectName: 'UCC Rocketry - Cerberus',
         technologyUsed: ['Raspberry Pi', 'ESP32/ESP8266', 'C++', 'Arduino'],
@@ -73,9 +85,9 @@ export const projects = [
         blurb: 'Patch 2024, actionable analytics for gyms',
         status: 0,
         links: [
+            {label: 'Gymificient Pitch', url: 'https://youtu.be/jycqwSAHBu0?feature=shared', site: 'Youtube'},
             {label: 'Gymificient CV Repository', url: 'https://github.com/MacManley/gymificientCV', site: 'GitHub'},
             {label: 'Gymificient Website Repository', url: 'https://github.com/jakubjn/Gymificient', site: 'GitHub'},
-            {label: 'Gymificient Pitch', url: 'https://youtu.be/jycqwSAHBu0?feature=shared', site: 'Youtube'},
             {label: 'Gymificient Announcement Post', url: 'https://www.linkedin.com/posts/nathan-manley_over-the-last-6-weeks-of-patch-we-have-been-activity-7227266750562652160-L9se', site: 'LinkedIn'}
         ],
         year: 2024
@@ -129,7 +141,7 @@ export const projects = [
             {label: 'GT7 UDP Plotly Visualiser', url: 'https://github.com/MacManley/gt7-track-visualizer', site: 'GitHub'},
             {label: 'GT7 Sport Mode Leaderboard Scraper', url: 'https://github.com/MacManley/gt7-leaderboards', site: 'GitHub'}
         ],
-        year: [2023, 2024, 2025]
+        year: [2023, 2025, 2026]
     },
     // {
     //     id: 1111,
@@ -231,9 +243,9 @@ export const techIconMap = {
   'Ongoing': <FcRadarPlot />,
   'Web': <FcGlobe />,
   'Work In Progress': <TbProgress />,
-  'GitHub': <VscGithub />,
-  'Youtube': <SiYoutube />,
-  'LinkedIn': <SiLinkedin />,
+  'GitHub': <VscGithub color="#ffffff"/>,
+  'Youtube': <SiYoutube color="#f70531"/>,
+  'LinkedIn': <SiLinkedin color="#3776AB"/>,
   'App': <SiAppstore />,
   'Play': <SiGoogleplay />,
   'Raspberry Pi': < SiRaspberrypi color="#f70531" />
