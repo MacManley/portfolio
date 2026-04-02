@@ -87,8 +87,12 @@ body {
   left: 0;
   border-radius: 999px;
   pointer-events: none;
-  background: linear-gradient(135deg, rgba(0, 188, 212, 0.3), rgba(140, 236, 255, 0.2));
-  box-shadow: inset 0 0 0 1px rgba(140, 236, 255, 0.45), 0 8px 18px rgba(0, 188, 212, 0.22);
+  background: linear-gradient(135deg, rgba(0, 188, 212, 0.28), rgba(140, 236, 255, 0.14));
+  box-shadow:
+    inset 0 0 0 1px rgba(140, 236, 255, 0.55),
+    0 0 10px rgba(77, 215, 255, 0.45),
+    0 0 24px rgba(77, 215, 255, 0.28),
+    0 0 48px rgba(0, 188, 212, 0.18);
   transition: transform 0.5s cubic-bezier(0.22, 1.2, 0.36, 1), width 0.5s cubic-bezier(0.22, 1.2, 0.36, 1), opacity 0.2s ease;
 }
 
@@ -113,26 +117,43 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: rgba(248, 253, 255, 0.9);
+  color: rgba(248, 253, 255, 0.75);
   font-weight: 600;
   font-size: 0.93rem;
   letter-spacing: 0.02em;
   padding: 9px 15px;
   border-radius: 999px;
-  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease, color 0.25s ease, text-shadow 0.25s ease;
   position: relative;
   z-index: 1;
 }
 
 .nav-link:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: white;
+  background: rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .nav-link.active {
   background: transparent;
-  color: #e9fdff;
-  box-shadow: none;
+  color: #cff4ff;
+  text-shadow:
+    0 0 6px rgba(140, 236, 255, 0.95),
+    0 0 14px rgba(77, 215, 255, 0.75),
+    0 0 30px rgba(0, 188, 212, 0.5),
+    0 0 55px rgba(0, 188, 212, 0.25);
+  animation: neon-flicker 6s ease-in-out infinite;
+}
+
+@keyframes neon-flicker {
+  0%, 100%   { text-shadow: 0 0 6px rgba(140,236,255,0.95), 0 0 14px rgba(77,215,255,0.75), 0 0 30px rgba(0,188,212,0.5), 0 0 55px rgba(0,188,212,0.25); }
+  48%        { text-shadow: 0 0 6px rgba(140,236,255,0.95), 0 0 14px rgba(77,215,255,0.75), 0 0 30px rgba(0,188,212,0.5), 0 0 55px rgba(0,188,212,0.25); }
+  50%        { text-shadow: 0 0 4px rgba(140,236,255,0.6),  0 0 10px rgba(77,215,255,0.45), 0 0 20px rgba(0,188,212,0.3), 0 0 38px rgba(0,188,212,0.15); }
+  52%        { text-shadow: 0 0 6px rgba(140,236,255,0.95), 0 0 14px rgba(77,215,255,0.75), 0 0 30px rgba(0,188,212,0.5), 0 0 55px rgba(0,188,212,0.25); }
+  78%        { text-shadow: 0 0 6px rgba(140,236,255,0.95), 0 0 14px rgba(77,215,255,0.75), 0 0 30px rgba(0,188,212,0.5), 0 0 55px rgba(0,188,212,0.25); }
+  80%        { text-shadow: 0 0 3px rgba(140,236,255,0.5),  0 0 8px  rgba(77,215,255,0.35), 0 0 16px rgba(0,188,212,0.2), 0 0 28px rgba(0,188,212,0.1); }
+  80.5%      { text-shadow: 0 0 6px rgba(140,236,255,0.95), 0 0 14px rgba(77,215,255,0.75), 0 0 30px rgba(0,188,212,0.5), 0 0 55px rgba(0,188,212,0.25); }
+  81%        { text-shadow: 0 0 3px rgba(140,236,255,0.5),  0 0 8px  rgba(77,215,255,0.35), 0 0 16px rgba(0,188,212,0.2), 0 0 28px rgba(0,188,212,0.1); }
+  81.5%      { text-shadow: 0 0 6px rgba(140,236,255,0.95), 0 0 14px rgba(77,215,255,0.75), 0 0 30px rgba(0,188,212,0.5), 0 0 55px rgba(0,188,212,0.25); }
 }
 
 /* Content area */

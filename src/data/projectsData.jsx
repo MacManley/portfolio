@@ -57,7 +57,7 @@ export const projects = [
     },
     {
         id: 8,
-        projectName: 'Remem (formerly Remento)',
+        projectName: 'Remento',
         technologyUsed: ['Swift', 'Javascript'],
         role: 'Frontend Developer',
         blurb: 'Catching and monitoring early-stage dementia.',
@@ -121,11 +121,10 @@ export const projects = [
         projectName: 'OnSite',
         technologyUsed: ['Swift'],
         role: 'Founder',
-        blurb: 'A mobile app for site photos and information',
+        blurb: 'The all-in-one mobile app for tradespeople.',
         status: 1,
         links: [
-           {label: 'UCC Entrepreneur of The Year Finalist', url: '/', site: 'Web'}
-            // {label: 'Google Play Store Link', url: '', site: 'Play'}
+           {label: 'UCC SEOTY Finalist', url: '/', site: 'Web'}
         ],
         year: [2025, 2026]
     },

@@ -205,13 +205,17 @@
   min-width: 0;
   text-decoration: none;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.24);
-  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
 }
 
 .contact-page .button-main:hover {
   background: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(77, 215, 255, 0.45);
   transform: translateY(-1px);
+  box-shadow:
+    0 0 8px rgba(77, 215, 255, 0.4),
+    0 0 22px rgba(0, 188, 212, 0.22),
+    0 8px 18px rgba(0, 0, 0, 0.24);
 }
 
 .button-secondary {
@@ -220,11 +224,44 @@
 }
 
 .button-alt {
-  background: rgba(0, 188, 212, 0.3);
+  background: rgba(0, 188, 212, 0.28);
   border-color: rgba(140, 236, 255, 0.55);
-  box-shadow: inset 0 0 0 1px rgba(140, 236, 255, 0.5), 0 10px 20px rgba(0, 188, 212, 0.22);
   color: #e9faff;
   font-weight: 600;
+  box-shadow:
+    inset 0 0 0 1px rgba(140, 236, 255, 0.35),
+    0 0 10px rgba(77, 215, 255, 0.38),
+    0 0 26px rgba(0, 188, 212, 0.2),
+    0 10px 20px rgba(0, 188, 212, 0.18);
+  animation: neon-btn-breathe 4s ease-in-out infinite;
+}
+
+.button-alt:hover {
+  background: rgba(0, 188, 212, 0.4) !important;
+  border-color: rgba(140, 236, 255, 0.8) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(140, 236, 255, 0.6),
+    0 0 14px rgba(77, 215, 255, 0.65),
+    0 0 34px rgba(0, 188, 212, 0.38),
+    0 10px 24px rgba(0, 188, 212, 0.28) !important;
+  animation: none !important;
+}
+
+@keyframes neon-btn-breathe {
+  0%, 100% {
+    box-shadow:
+      inset 0 0 0 1px rgba(140, 236, 255, 0.35),
+      0 0 10px rgba(77, 215, 255, 0.38),
+      0 0 26px rgba(0, 188, 212, 0.2),
+      0 10px 20px rgba(0, 188, 212, 0.18);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 0 1px rgba(140, 236, 255, 0.55),
+      0 0 16px rgba(77, 215, 255, 0.55),
+      0 0 38px rgba(0, 188, 212, 0.3),
+      0 10px 22px rgba(0, 188, 212, 0.22);
+  }
 }
 
 @media (max-width: 768px) {
