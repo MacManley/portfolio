@@ -44,6 +44,7 @@ export const projects = [
         id: 4,
         projectName: 'HackEurope 2026',
         technologyUsed: ['React', 'Python', 'Vite', 'Claude'],
+        type: ['Hackathon', 'Web'],
         role: 'API Developer, Backend Developer',
         blurb: 'HackEurope 2026 Hackathon Project',
         status: 0,
@@ -59,6 +60,7 @@ export const projects = [
         id: 8,
         projectName: 'Remento',
         technologyUsed: ['Swift', 'Javascript'],
+        type: ['Hackathon', 'Mobile'],
         role: 'Frontend Developer',
         blurb: 'Catching and monitoring early-stage dementia.',
         status: 1,
@@ -71,6 +73,7 @@ export const projects = [
         id: 1000,
         projectName: 'UCC Rocketry - Cerberus',
         technologyUsed: ['Raspberry Pi', 'ESP32/ESP8266', 'C++', 'Arduino'],
+        type: ['Hardware'],
         role: 'CanSat Lead, Hardware Avionics Member',
         blurb: 'UCC Rocketry and Space Exploration Society',
         status: 1,
@@ -81,6 +84,7 @@ export const projects = [
         id: 1,
         projectName: 'Gymificient',
         technologyUsed: ['Python', 'C#', 'OpenCV', 'Blazor', 'Azure', 'SQL', 'CSS'],
+        type: ['Web', "Software"],
         role: 'Back-end Engineer, Demo Day Pitcher',
         blurb: 'Patch 2024, actionable analytics for gyms',
         status: 0,
@@ -96,6 +100,7 @@ export const projects = [
         id: 2,
         projectName: 'GCC CanSat 2024',
         technologyUsed: ['3D Printing', 'Fusion 360', 'ESP32/ESP8266', 'Arduino', 'C++', 'Tensorflow', 'Python'],
+        type: ["Software", "Hardware"],
         role: 'Lead 3D Design/Printing, Lead ML Engineer',
         blurb: 'Glanmire Community College 2024 CanSat',
         status: 0,
@@ -108,6 +113,7 @@ export const projects = [
         id: 3,
         projectName: 'GCC CanSat 2023',
         technologyUsed: ['3D Printing', 'Arduino', 'C++'],
+        type: ["Software", "Hardware"],
         role: 'Lead Programmer, Lead 3D Printing',
         blurb: 'Glanmire Community College 2023 CanSat',
         status: 0, // complete
@@ -120,6 +126,7 @@ export const projects = [
         id: 6,
         projectName: 'OnSite',
         technologyUsed: ['Swift'],
+        type: ['Mobile', "Software"],
         role: 'Founder',
         blurb: 'The all-in-one mobile app for tradespeople.',
         status: 1,
@@ -132,6 +139,7 @@ export const projects = [
         id: 5,
         projectName: 'UDP Telemetry Parsers',
         technologyUsed: ['C++', 'ESP32/ESP8266', 'Arduino', 'Python', 'Javascript'],
+        type: ['Software', 'Hardware'],
         role: '',
         blurb: 'Parsing UDP telemetry from racing video games',
         status: 0,
@@ -158,6 +166,7 @@ export const projects = [
         id: 67,
         projectName: 'Ender 3V2 AMS',
         technologyUsed: ['Raspberry Pi', 'Fusion 360', '3D Printing'],
+        type: ['Hardware'],
         role: '',
         blurb: "Custom Automatic Material System using Klipper",
         status: 2, //wip
@@ -263,3 +272,5 @@ export const statusColorMap = {
     1: "#2d4a5a",          // dark blue
     2: "#5a4a2d" // dark yellow/amber
   };
+
+export const jobTypes = ['Hackathon', 'Hardware', 'Mobile', 'Software', 'Web'];

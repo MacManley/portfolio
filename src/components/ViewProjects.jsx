@@ -136,7 +136,7 @@ function ProjectLinkStack({ projectId, links }) {
     );
 }
 
-function ProjectsView({ technologyFilter, statusFilter }) {
+function ProjectsView({ technologyFilter, statusFilter, searchQuery = '', typeFilter = null }) {
         const [selectedProject, setSelectedProject] = useState(null);
         const [isModalOpen, setIsModalOpen] = useState(false);
     const [markdownCache, setMarkdownCache] = useState({});
@@ -169,7 +169,15 @@ function ProjectsView({ technologyFilter, statusFilter }) {
                     !technologyFilter || project.technologyUsed.includes(technologyFilter);
                 const matchesStatus =
                     statusFilter == null || statusLabels[project.status] === statusFilter;
-                return matchesTech && matchesStatus;
+                const matchesType =
+                    !typeFilter || (project.type && project.type.includes(typeFilter));
+                const q = searchQuery.trim().toLowerCase();
+                const matchesSearch =
+                    !q ||
+                    project.projectName.toLowerCase().includes(q) ||
+                    project.blurb.toLowerCase().includes(q) ||
+                    project.role.toLowerCase().includes(q);
+                return matchesTech && matchesStatus && matchesType && matchesSearch;
         });
 
         const noProjects = filteredProjects.length === 0;
