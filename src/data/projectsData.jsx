@@ -43,7 +43,7 @@ export const projects = [
     {
         id: 4,
         projectName: 'HackEurope 2026',
-        technologyUsed: ['React', 'Python', 'Vite', 'Claude'],
+        technologyUsed: ['React', 'Javascript', 'Python', 'Vite', 'CSS', 'Claude'],
         type: ['Hackathon', 'Web'],
         role: 'API Developer, Backend Developer',
         blurb: 'HackEurope 2026 Hackathon Project',
@@ -81,11 +81,25 @@ export const projects = [
         year: [2025, 2026]
     },
     {
+        id: 9,
+        projectName: 'Reeves',
+        technologyUsed: ['Javascript', 'CSS', 'React', 'Vite'],
+        type: ['Hackathon', 'Web'],
+        role: 'Frontend Developer',
+        blurb: 'The smart interview prepper.',
+        status: 0,
+        links: [
+            {label: 'Claude Hackathon Winner', url: '', site: 'Web'},
+            {label: 'Repository', url: 'https://github.com/MacManley/claude-hackathon/tree/main', site: 'GitHub'}
+        ],
+        year: 2026
+    },
+    {
         id: 1,
         projectName: 'Gymificient',
         technologyUsed: ['Python', 'C#', 'OpenCV', 'Blazor', 'Azure', 'SQL', 'CSS'],
         type: ['Web', "Software"],
-        role: 'Back-end Engineer, Demo Day Pitcher',
+        role: 'Backend Engineer, Demo Day Pitcher',
         blurb: 'Patch 2024, actionable analytics for gyms',
         status: 0,
         links: [

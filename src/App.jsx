@@ -82,10 +82,10 @@ function App() {
           </Routes>
         </main>
       </div>
-      <div className="rr">
+      {/* <div className="rr">
       <h6>© 2026 • Nathan Manley</h6>
       <h6>All Rights Reserved</h6>
-      </div>
+      </div> */}
     </div>
   );
 }

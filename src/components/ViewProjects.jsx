@@ -96,7 +96,7 @@ function ProjectLinkStack({ projectId, links }) {
                         rel="noreferrer"
                         onClick={(event) => event.stopPropagation()}
                     >
-                        <span>{link.label}</span>
+                        <span className="link-label">{link.label}</span>
                         {techIconMap[link.site] && <span className="link-icon">{techIconMap[link.site]}</span>}
                     </a>
                 ))}
@@ -112,7 +112,7 @@ function ProjectLinkStack({ projectId, links }) {
                             measureLinkRefs.current[index] = node;
                         }}
                     >
-                        <span>{link.label}</span>
+                        <span className="link-label">{link.label}</span>
                         {techIconMap[link.site] && <span className="link-icon">{techIconMap[link.site]}</span>}
                     </span>
                 ))}

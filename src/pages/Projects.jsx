@@ -64,6 +64,11 @@ function Projects() {
         typeFilter={selectedType}
       />
       </div>
+
+      <div className="page-footer-note">
+        <p>© 2026 • Nathan Manley</p>
+        <p>All Rights Reserved</p>
+      </div>
      </div>
    );
  }

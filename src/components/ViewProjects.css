@@ -185,17 +185,26 @@ img {
     display: inline-flex;
     align-items: center;
     flex: 0 0 auto;
+    max-width: 100%;
     gap: 6px;
     padding: 4px 12px;
     border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     background: rgba(255, 255, 255, 0.04);
     color: #e6f7ff;
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
     text-decoration: none;
+}
+
+.project-link-chip .link-label {
+    display: inline-block;
+    max-width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .project-link-chip.more {
@@ -203,6 +212,7 @@ img {
     border-style: dotted;
     letter-spacing: normal;
     white-space: nowrap;
+    align-self: stretch;
 }
 
 .project-link-chip:hover {

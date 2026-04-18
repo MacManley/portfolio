@@ -230,6 +230,16 @@ h2 {
   font-size: 1rem;
 }
 
+/* Shared page footer note */
+.page-footer-note {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: #b1c8ce;
+  letter-spacing: 0.03em;
+}
+
 /* Main section */
 .main-section {
   min-height: 40vh;

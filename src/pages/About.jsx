@@ -48,14 +48,14 @@ const timelineEvents = [
     description: 'Academic officer for rocketry society. Head of CanSat avionics development for the engineering team.',
   },
   {
-    year: 'March 2026 - Present',
-    title: 'UCC Student Entrepreneur of the Year Finalist',
-    description: 'Finalist in the UCC Student Entrepreneur of the Year competition, recognised for entrepreneurial and innovative initiatives on campus.',
-  },
-  {
     year: 'January 2026 - Present',
     title: 'OnSite',
     description: 'Founder of OnSite, the all-in-one mobile app for tradespeople.',
+  },
+  {
+    year: 'March 2026 - Present',
+    title: 'UCC Student Entrepreneur of the Year Finalist',
+    description: 'Finalist in the UCC Student Entrepreneur of the Year competition, recognised for entrepreneurial and innovative initiatives on campus.',
   },
   // {
   //   year: 'April 2026 - Present',
@@ -147,7 +147,7 @@ export default function About() {
         <article className="about-card">
           <h3>About Me</h3>
           <p>
-            I&apos;m a 19-year-old engineering student at UCC with a passion for electronics, microcontrollers, and motorsport.
+            I&apos;m a 20-year-old engineering student at UCC with a passion for electronics, microcontrollers, and motorsport.
             My journey began early, when I attended my first CoderDojo session at 8 years old.
           </p>
         </article>
