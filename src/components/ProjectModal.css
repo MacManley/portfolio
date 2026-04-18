@@ -267,7 +267,7 @@
 } 
 
 .markdown-content img {
-  border-radius: 8px;  /* example for Markdown */
+  border-radius: 15px;  /* example for Markdown */
   width: 100%;         /* scale nicely */
   height: auto;        /* preserve aspect ratio */
   object-fit: cover;   /* optional, if you want cropping */
