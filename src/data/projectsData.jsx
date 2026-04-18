@@ -89,7 +89,7 @@ export const projects = [
         blurb: 'The smart interview prepper.',
         status: 0,
         links: [
-            {label: 'Claude Hackathon Winner', url: '', site: 'Web'},
+            {label: 'Claude Hackathon Winner', url: 'https://www.linkedin.com/posts/nathan-manley_the-glanmire-duo-strikes-again-this-time-ugcPost-7450842299825111041-FgN7', site: 'Web'},
             {label: 'Repository', url: 'https://github.com/MacManley/claude-hackathon/tree/main', site: 'GitHub'}
         ],
         year: 2026
