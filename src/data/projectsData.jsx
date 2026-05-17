@@ -70,8 +70,24 @@ export const projects = [
         year: 2026
     },
     {
+        id: 6,
+        projectName: 'OnSite',
+        technologyUsed: ['Swift'],
+        type: ['Mobile', "Software"],
+        role: 'Founder',
+        blurb: 'The all-in-one mobile app for tradespeople.',
+        status: 1,
+        links: [
+           {label: 'UCC SEOTY Finalist', url: '/', site: 'Web'},
+           {label: 'iOS App', url: 'https://apps.apple.com/ie/app/onsite-trades/id6761440069', site: 'App'},
+           {label: 'Marketing Website', url: 'https://onsite-trades.com', site: 'Web'},
+           {label: 'Documentation Website', url: 'https://docs.onsite-trades.com', site: 'Web'}
+        ],
+        year: [2025, 2026]
+    },
+    {
         id: 1000,
-        projectName: 'UCC Rocketry - Cerberus',
+        projectName: 'UCC Rocketry',
         technologyUsed: ['Raspberry Pi', 'ESP32/ESP8266', 'C++', 'Arduino'],
         type: ['Hardware'],
         role: 'CanSat Lead, Hardware Avionics Member',
@@ -135,19 +151,6 @@ export const projects = [
             {label: 'CanSat 2023 Repository', url: 'https://github.com/MacManley/cansat/tree/main/2023', site: 'GitHub'},
         ],
         year: 2023
-    },
-    {
-        id: 6,
-        projectName: 'OnSite',
-        technologyUsed: ['Swift'],
-        type: ['Mobile', "Software"],
-        role: 'Founder',
-        blurb: 'The all-in-one mobile app for tradespeople.',
-        status: 1,
-        links: [
-           {label: 'UCC SEOTY Finalist', url: '/', site: 'Web'}
-        ],
-        year: [2025, 2026]
     },
     {
         id: 5,
