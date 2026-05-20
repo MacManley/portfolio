@@ -90,6 +90,8 @@ img {
 
 /* Apply only to project card images */
 .project-image img {
+    user-select: none;
+    -webkit-user-select: none;
     width: 100%;
     height: 100%; /* match the container height */
     object-fit: cover;
