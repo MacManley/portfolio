@@ -5,17 +5,17 @@ const timelineEvents = [
   {
     year: 'September 2014',
     title: 'First CoderDojo Session',
-    description: 'Attended my first CoderDojo session at age 8. The spark that started everything.',
+    description: 'Attended my first CoderDojo session at age eight. The spark that started everything.',
   },
   {
     year: '2016-2018',
     title: 'Coolest Projects',
-    description: 'Entered 1 software and 2 hardware projects in 3 consecutive years of Coolest Projects. Various projects spanning cargo container calculators, to medication dispensers.',
+    description: 'Entered one software and two hardware projects in three consecutive years of Coolest Projects. Various projects spanning cargo container calculators, to medication dispensers.',
   },
   {
     year: '2023-2024',
     title: 'CanSat Competition',
-    description: 'Designed and launched a CanSat, integrating sensors, telemetry, and recovery systems. Won regional competition.',
+    description: 'Designed and launched two CanSat, integrating sensors, telemetry, and recovery systems. Won regional competition.',
   },
   {
     year: 'July 2024 - September 2024',
@@ -37,25 +37,30 @@ const timelineEvents = [
     title: 'CETB Dick Langford Award',
     description: 'Received the CETB Dick Langford Leaving Certificate Award for outstanding results.',
   },
-  // {
-  //   year: 'September 2025 - Present',
-  //   title: 'Engineering @ UCC',
-  //   description: 'Studying Engineering (CK600) at University College Cork.',
-  // },
   {
-    year: 'September 2025 - Present',
-    title: 'UCC Rocketry and Space Society',
-    description: 'Academic officer for rocketry society. Head of CanSat avionics development for the engineering team.',
-  },
-  {
-    year: 'January 2026 - Present',
-    title: 'OnSite',
-    description: 'Founder of OnSite, the all-in-one mobile app for tradespeople.',
-  },
-  {
-    year: 'March 2026 - Present',
+    year: 'May 2026',
     title: 'UCC Student Entrepreneur of the Year Finalist',
     description: 'Finalist in the UCC Student Entrepreneur of the Year competition, recognised for entrepreneurial and innovative initiatives on campus.',
+  },
+  {
+    year: 'September 2025 - Present',
+    title: 'Engineering @ UCC',
+    description: 'Studying Engineering (CK600) at University College Cork.',
+  },
+  // {
+  //   year: 'September 2025 - Present',
+  //   title: 'UCC Rocketry and Space Society',
+  //   description: 'Academic officer for rocketry society. Head of CanSat avionics development for the engineering team.',
+  // },
+  // {
+  //   year: 'January 2026 - Present',
+  //   title: 'OnSite',
+  //   description: 'Founder of OnSite, the all-in-one mobile app for tradespeople.',
+  // },
+  {
+    year: 'June 2026 - Present',
+    title: 'Software UX Design Intern @ Logitech',
+    description: 'Interning on the software UX design team at Logitech, working on user research, prototyping, and design for upcoming products.',
   },
   // {
   //   year: 'April 2026 - Present',

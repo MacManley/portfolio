@@ -179,18 +179,18 @@ export const projects = [
     //     ],
     //     year: [2025, 2026]
     // },
-    {
-        id: 67,
-        projectName: 'Ender 3V2 AMS',
-        technologyUsed: ['Raspberry Pi', 'Fusion 360', '3D Printing'],
-        type: ['Hardware'],
-        role: '',
-        blurb: "Custom Automatic Material System using Klipper",
-        status: 2, //wip
-        links: [
-        ],
-        year: 2026
-    },
+    // {
+    //     id: 67,
+    //     projectName: 'Ender 3V2 AMS',
+    //     technologyUsed: ['Raspberry Pi', 'Fusion 360', '3D Printing'],
+    //     type: ['Hardware'],
+    //     role: '',
+    //     blurb: "Custom Automatic Material System using Klipper",
+    //     status: 2, //wip
+    //     links: [
+    //     ],
+    //     year: 2026
+    // },
     // {
     //     id: 7,
     //     projectName: 'VEX Robotics GCC',
