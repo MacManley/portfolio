@@ -180,7 +180,7 @@ export default function About() {
         <article className="about-card about-card-highlight">
           <h3>Goals</h3>
           <p>
-            I'm excited to apply my skills to practically projects, especially AI, rocketry, motorsport,
+            I'm excited to apply my skills to practical projects, especially AI, rocketry, motorsport,
             and the intersection of electronics and software.
           </p>
         </article>
