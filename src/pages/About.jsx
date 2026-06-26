@@ -65,7 +65,7 @@ const timelineEvents = [
   // {
   //   year: 'September 2026 - Present',
   //   title: 'UCC Quercus Talented Students Programme Scholar',
-  //   description: 'UCC Quercus Innovation and Entreprenurship Scholar for the duration of my undergraduate studies.',
+  //   description: 'UCC Quercus Innovation and Entrepreneurship Scholar for the duration of my undergraduate studies.',
   // },
 ].reverse();
 
