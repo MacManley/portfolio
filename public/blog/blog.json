@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "18-06",
+    "title": "Discovering new telemetry data with Gran Turismo 7.",
+    "date": "2026-03-30",
+    "description": "Exploring the hidden insights available in Gran Turismo 7's Update 1.68 telemetry system.",
+    "tags": ["UDP", "ESP32/ESP8266", "Arduino", "Telemetry", "Gran Turismo 7"]
+  },
+  {
+    "slug": "19-06",
+    "title": "WWDC '26: Say Hi to Siri AI.",
+    "date": "2026-06-20",
+    "description": "Chatting about WWDC '26.",
+    "tags": ["WWDC '26", "Apple", "Siri AI", "iOS 26", "macOS 26"]
+  }
+]

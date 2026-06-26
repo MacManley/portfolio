@@ -3,12 +3,15 @@ import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import Projects from './pages/Projects';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import './index.css';
 
 const navItems = [
   { to: '/', label: 'About' },
   { to: '/projects', label: 'Portfolio' },
-  { to: '/contact', label: 'Contact' }
+  { to: '/blog', label: 'Blog' },
+  { to: '/contact', label: 'Contact' },
 ];
 
 function App() {
@@ -18,7 +21,10 @@ function App() {
 
   const syncBubble = () => {
     const activePath = location.pathname;
-    const activeLink = linksRef.current[activePath];
+    const matchedKey = Object.keys(linksRef.current).find(
+      (key) => key !== '/' ? activePath.startsWith(key) : activePath === '/'
+    );
+    const activeLink = linksRef.current[matchedKey];
     if (!activeLink) {
       return;
     }
@@ -68,7 +74,7 @@ function App() {
             ))}
           </div>
           <div className="nav-logo" aria-hidden="true">
-            <img src="./assets/favicon.png" alt="Nathan Manley 2026"/>
+            <img src="/assets/favicon.png" alt="Nathan Manley 2026"/>
           </div>
         </div>
       </nav>
@@ -78,6 +84,8 @@ function App() {
           <Routes>
             <Route path="/" element={<About />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

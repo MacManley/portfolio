@@ -22,21 +22,21 @@ const timelineEvents = [
     title: 'Patch 2024',
     description: 'One of thirty people selected for Patch 2024, a startup accelerator program. Co-founded Gymificient, an actionable analytics platform for gyms, and pitched at Demo Day.',
   },
-  {
-    year: '2024 - 2025',
-    title: 'Leaving Certificate',
-    description: 'Took a break from project work to focus on preparing for the Leaving Certificate, achieving 589/625 points.',
-  },
+  // {
+  //   year: '2024 - 2025',
+  //   title: 'Leaving Certificate',
+  //   description: 'Took a break from project work to focus on preparing for the Leaving Certificate, achieving 589/625 points.',
+  // },
   {
     year: 'February 2026',
     title: 'National SDG Hackathon Winner',
     description: 'Won €4K in prize money over two SDG hackathons (regional and national) with the idea Remento.',
   },
-  {
-    year: 'March 2026',
-    title: 'CETB Dick Langford Award',
-    description: 'Received the CETB Dick Langford Leaving Certificate Award for outstanding results.',
-  },
+  // {
+  //   year: 'March 2026',
+  //   title: 'CETB Dick Langford Award',
+  //   description: 'Received the CETB Dick Langford Leaving Certificate Award for outstanding results.',
+  // },
   {
     year: 'May 2026',
     title: 'UCC Student Entrepreneur of the Year Finalist',
@@ -59,13 +59,13 @@ const timelineEvents = [
   // },
   {
     year: 'June 2026 - Present',
-    title: 'Software UX Design Intern @ Logitech',
-    description: 'Interning on the software UX design team at Logitech, working on user research, prototyping, and design for upcoming products.',
+    title: 'SWUX Design Intern @ Logitech',
+    description: 'Interning on the Software UX design team at Logitech, working on user research, prototyping, and design for Options+.',
   },
   // {
-  //   year: 'April 2026 - Present',
-  //   title: 'Quercus Innovation and Entrepreneurial Scholar',
-  //   description: 'UCC Quercus Innovation and Entreprenurship Scholar for the duration of my undergraduate.',
+  //   year: 'September 2026 - Present',
+  //   title: 'UCC Quercus Talented Students Programme Scholar',
+  //   description: 'UCC Quercus Innovation and Entreprenurship Scholar for the duration of my undergraduate studies.',
   // },
 ].reverse();
 
@@ -152,7 +152,7 @@ export default function About() {
         <article className="about-card">
           <h3>About Me</h3>
           <p>
-            I&apos;m a 20-year-old engineering student at UCC with a passion for electronics, microcontrollers, and motorsport.
+            I'm a 20-year-old engineering student at UCC with a passion for electronics, microcontrollers, and motorsport.
             My journey began early, when I attended my first CoderDojo session at 8 years old.
           </p>
         </article>
@@ -160,8 +160,8 @@ export default function About() {
         <article className="about-card">
           <h3>Background</h3>
           <p>
-            I&apos;m currently studying Engineering at UCC after a successful Leaving Certificate, for which I received the CETB Dick
-            Langford Leaving Certificate Award for my results. Through engineering, I&apos;m building on my foundation in electronics,
+            I'm currently studying Engineering at UCC after a successful Leaving Certificate, for which I received the CETB Dick
+            Langford Leaving Certificate Award for my results. Through engineering, I'm building on my foundation in electronics,
             programming, and problem-solving across business, software, and hardware projects.
           </p>
         </article>
@@ -171,18 +171,17 @@ export default function About() {
           <ul className="about-skills">
             <li><strong>Electronics:</strong> Circuit design, microcontroller programming, sensor integration</li>
             <li><strong>Programming:</strong> Python, C++, SwiftUI, JavaScript</li>
+            <li><strong>Software Development:</strong> C++ library design, React and Electron app development</li>
             <li><strong>3D Design:</strong> Autodesk Fusion 360, 3D printing</li>
             <li><strong>Robotics:</strong> VEX Robotics, CanSat competitions, autonomous systems</li>
-            <li><strong>Software Development:</strong> C++ library design, mobile and web app development</li>
           </ul>
         </article>
 
         <article className="about-card about-card-highlight">
           <h3>Goals</h3>
           <p>
-            I&apos;m excited to keep strengthening my skills in engineering, especially in fitness tech, rocketry, motorsport,
-            and the intersection of electronics and software. I also continue to mentor at CoderDojo Glanmire, where my
-            passion for programming and innovation first began.
+            I'm excited to apply my skills to practically projects, especially AI, rocketry, motorsport,
+            and the intersection of electronics and software.
           </p>
         </article>
       </section>
