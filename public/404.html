@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
     <meta http-equiv="refresh" content="0; url=/" />
+    <script>
+      (function () {
+        var path = window.location.pathname + window.location.search + window.location.hash;
+
+        if (path === '/' || path === '/index.html') {
+          return;
+        }
+
+        window.sessionStorage.setItem('redirectPath', path);
+        window.location.replace('/');
+      })();
+    </script>
   </head>
   <body></body>
 </html>
