@@ -22,7 +22,7 @@
 .modal-content {
   background: rgba(17, 17, 20, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 32px;
+  border-radius: 30px;
   max-width: 900px;
   width: min(90vw, 900px);
   max-height: calc(100vh - 150px);
@@ -102,6 +102,7 @@
   padding: 30px 40px 28px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   background: linear-gradient(160deg, rgba(10, 16, 22, 0.92), rgba(8, 10, 14, 0.78));
+  border-radius: 5px;
 }
 
 .modal-header-content {

@@ -19,7 +19,7 @@ export default function Blog() {
   return (
     <div className="blog-page">
       <div className="blog-header page-header">
-        <p className="page-eyebrow">Writing</p>
+        <p className="page-eyebrow">HOW I BUILD</p>
         <h1 className="page-title">Blog</h1>
         <p className="page-description">
           Thoughts on tech, building things, and lessons learned.

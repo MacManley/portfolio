@@ -192,7 +192,7 @@ function ProjectsView({ technologyFilter, statusFilter, searchQuery = '', typeFi
 
         const prefetchProject = (project) => {
             const cover = new Image();
-            cover.src = `/assets/${project.id}.png`;
+            cover.src = `/assets/${project.id}.webp`;
 
             if (markdownCache[project.id] || loadingPromises.current[project.id]) {
                 return;
@@ -248,7 +248,7 @@ function ProjectsView({ technologyFilter, statusFilter, searchQuery = '', typeFi
                             onClick={() => handleProjectClick(project)}
                             onMouseEnter={() => prefetchProject(project)}>
                             <div className="project-image">
-                                <img src={`/assets/${project.id}.png`} alt={project.projectName}/>
+                                <img src={`/assets/${project.id}.webp`} alt={project.projectName}/>
                                 <div className="project-overlay">
                                     <span className="view-details">View</span>
                                 </div>

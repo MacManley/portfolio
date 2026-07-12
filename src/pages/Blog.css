@@ -23,9 +23,8 @@
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background:
-    radial-gradient(circle at 90% 10%, rgba(0, 188, 212, 0.18), transparent 40%),
-    radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.06), transparent 35%),
+  background: radial-gradient(circle at 10% 10%, rgba(0, 188, 212, 0.22), transparent 42%),
+    radial-gradient(circle at 82% 0%, rgba(255, 255, 255, 0.12), transparent 35%),
     linear-gradient(180deg, #0b0f13 0%, #080808 62%, #060606 100%);
 }
 
@@ -54,7 +53,7 @@
   text-decoration: none;
   background: rgba(15, 15, 15, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
+  border-radius: 15px;
   padding: 28px 32px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
   position: relative;
@@ -190,7 +189,7 @@
   margin: 0 auto;
   background: rgba(15, 15, 15, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 28px;
+  border-radius: 30px;
   padding: 44px 52px;
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
   min-width: 0;
@@ -301,7 +300,7 @@
 .blog-post-body pre {
   background: rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
+  border-radius: 15px;
   padding: 20px 24px;
   overflow-x: auto;
   max-width: 100%;
@@ -372,12 +371,12 @@
 
   .blog-post {
     padding: 32px 24px;
-    border-radius: 20px;
+    border-radius: 30px;
   }
 
   .blog-card {
     padding: 22px 22px;
-    border-radius: 18px;
+    border-radius: 15px;
   }
 
   .blog-card-title {
@@ -403,7 +402,7 @@
 
   .blog-post,
   .blog-card {
-    border-radius: 16px;
+    border-radius: 15px;
   }
 
   .blog-post {

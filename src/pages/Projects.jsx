@@ -15,7 +15,7 @@ function Projects() {
    return (
    <div className="projects-page">
     <div className="projects-header page-header">
-       <p className="page-eyebrow">Built To Ship</p>
+       <p className="page-eyebrow">WHAT I WORK ON</p>
        <h1 className="page-title">Projects</h1>
        <p className="page-description">
          A snapshot of software, hardware, and AI builds across hackathons,

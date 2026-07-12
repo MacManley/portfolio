@@ -9,8 +9,6 @@ import {
     SiAutocad,
     SiSwift,
     SiYoutube,
-    SiLinkedin,
-    SiCss3,
     SiAppstore,
     SiGoogleplay,
     SiVite,
@@ -31,12 +29,17 @@ import {
     VscGithub
  }  from 'react-icons/vsc';
 
+ import {
+    FaLinkedin,
+ } from 'react-icons/fa';
+
 import {
     TbSql,
     TbBrandCSharp,
     TbBadge3D,
     TbProgress,
-    TbCubeSpark
+    TbCubeSpark,
+    TbBrandCss3
 } from 'react-icons/tb';
 
 export const projects = [
@@ -168,6 +171,32 @@ export const projects = [
         year: [2023, 2025, 2026]
     },
     // {
+    //     id: 69,
+    //     projectName: 'seis',
+    //     technologyUsed: ['Swift'],
+    //     type: ['Software', 'Mobile'],
+    //     role: '',
+    //     blurb: 'Earthquake EEW',
+    //     status: 2,
+    //     links: [
+    //         {label: 'App Store', url: '', site: 'App'},
+    //     ],
+    //     year: [2026]
+    // },
+    // {
+    //     id: 12,
+    //     projectName: 'Intelligent Desk Robot',
+    //     technologyUsed: ['ESP32/ESP8266', 'Raspberry Pi', 'C++', 'Python'],
+    //     type: ['Hardware'],
+    //     role: '',
+    //     blurb: '...',
+    //     status: 2,
+    //     links: [
+    //         {},
+    //     ],
+    //     year: [2026]
+    // },
+    // {
     //     id: 1111,
     //     projectName: 'Portfolio Site',
     //     technologyUsed: ['React', 'Javascript', 'CSS', 'Vite'],
@@ -211,7 +240,7 @@ export const projects = [
     //     blurb: 'A device for sorting and recycling batteries',
     //     status: 0,
     //     links: [
-    //         {}
+    //         {},
     //     ]
     //     // year: 2025
     // },
@@ -259,7 +288,7 @@ export const techIconMap = {
   'Azure': <VscAzure color='#3CCBF4' />,
   'SQL': <TbSql />,
   'Swift': <SiSwift color="#FFAC45" />,
-  'CSS': <SiCss3 color="#00599C"/>,
+  'CSS': <TbBrandCss3 color="#00599C"/>,
   'Fusion 360': <SiAutocad color="#ed742e"/>,
   'Solidworks': <TbCubeSpark color="#9e0000ff"/>,
   '3D Printing': <TbBadge3D />, // approximate; no official 3D print icon
@@ -270,7 +299,7 @@ export const techIconMap = {
   'Work In Progress': <TbProgress />,
   'GitHub': <VscGithub color="#ffffff"/>,
   'Youtube': <SiYoutube color="#f70531"/>,
-  'LinkedIn': <SiLinkedin color="#3776AB"/>,
+  'LinkedIn': <FaLinkedin color="#3776AB"/>,
   'App': <SiAppstore />,
   'Play': <SiGoogleplay />,
   'Raspberry Pi': < SiRaspberrypi color="#f70531" />

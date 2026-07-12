@@ -1,6 +1,6 @@
 .about-page {
 	min-height: 100vh;
-	padding: 26px 24px 80px;
+	padding: 26px 24px 175px;
 	position: relative;
 	isolation: isolate;
 	color: #f1f1f5;
@@ -35,7 +35,7 @@
 .about-identity-card {
 	background: rgba(15, 15, 15, 0.9);
 	border: 1px solid rgba(255, 255, 255, 0.08);
-	border-radius: 34px;
+	border-radius: 30px;
 	padding: 32px;
 	box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
 	display: grid;
@@ -138,7 +138,7 @@
 .about-card {
 	background: rgba(15, 15, 15, 0.9);
 	border: 1px solid rgba(255, 255, 255, 0.08);
-	border-radius: 34px;
+	border-radius: 30px;
 	padding: 32px;
 	box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
 	display: flex;
@@ -288,7 +288,7 @@
 .timeline-card {
 	background: rgba(15, 15, 15, 0.9);
 	border: 1px solid rgba(255, 255, 255, 0.08);
-	border-radius: 20px;
+	border-radius: 15px;
 	padding: 22px 26px;
 	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 	max-width: 440px;

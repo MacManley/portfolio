@@ -135,7 +135,7 @@ export default function About() {
       <header className="about-hero">
         <div className="about-identity-card">
           <div className="about-profile-image">
-            <img src="./assets/nathan.png" alt="Nathan Manley" />
+            <img src="./assets/nathan.webp" alt="Nathan Manley" />
           </div>
           <div className="about-profile-info">
             <p className="about-eyebrow">Engineer • Builder • Mentor</p>

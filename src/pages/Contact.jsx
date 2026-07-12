@@ -51,7 +51,7 @@ export default function Contact() {
   return (
     <div className="contact-page">
       <div className="contact-header page-header">
-        <p className="page-eyebrow">Let's collaborate</p>
+        <p className="page-eyebrow">WHERE TO FIND ME</p>
         <h1 className="page-title">Contact</h1>
         <p className="page-description">
           Whether it's a project, partnership, or just a quick question, I'm
