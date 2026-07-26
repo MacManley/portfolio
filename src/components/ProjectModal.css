@@ -4,14 +4,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(27, 27, 27, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 110px 16px 40px;
   z-index: 1000;
-  backdrop-filter: blur(5px);
-  animation: overlayFade 0.35s ease-out;
   overflow: hidden;
 }
 
@@ -20,78 +18,16 @@
 }
 
 .modal-content {
-  background: rgba(17, 17, 20, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 30px;
-  max-width: 900px;
-  width: min(90vw, 900px);
+  background: var(--surface-1);
+  border: 2px solid var(--border-solid);
+  max-width: 1120px;
+  width: min(92vw, 1120px);
   max-height: calc(100vh - 150px);
   overflow: hidden;
   position: relative;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
-  animation: modalPop 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   display: flex;
   flex-direction: column;
 }
-
-@keyframes modalPop {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes overlayFade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes overlayFadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes modalOut {
-  from {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(20px) scale(0.96);
-  }
-}
-
-.modal-overlay.closing {
-  animation: overlayFadeOut 0.3s ease-in forwards;
-}
-
-.modal-content.closing {
-  animation: modalOut 0.3s ease-in forwards;
-}
-
-/* @keyframes fadeOutDown {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-} */
 
 .modal-header {
   position: relative;
@@ -100,9 +36,7 @@
   justify-content: space-between;
   gap: 30px;
   padding: 30px 40px 28px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  background: linear-gradient(160deg, rgba(10, 16, 22, 0.92), rgba(8, 10, 14, 0.78));
-  border-radius: 5px;
+  border-bottom: 2px solid var(--border-solid);
 }
 
 .modal-header-content {
@@ -111,12 +45,24 @@
   gap: 12px;
 }
 
-.modal-header h1 {
-  margin: 0 0 8px 0;
-  color: #e6f9ff;
-  font-size: clamp(1.9rem, 2.6vw, 2.4rem);
+.modal-codename {
+  margin: 0;
+  font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fg);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 700;
-  letter-spacing: 0.03em;
+  line-height: 1.05;
+}
+
+.modal-header h1 {
+  margin: 0;
+  color: var(--fg-64);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .modal-project-info {
@@ -125,63 +71,80 @@
   gap: 6px;
 }
 
+.modal-designation {
+  font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--fg-64);
+}
+
+.modal-designation .codename-slot {
+  font-weight: 700;
+  color: var(--fg);
+}
+
+.modal-designation .codename-slot.is-empty {
+  display: inline-block;
+  min-width: 70px;
+  border-bottom: 1px dashed var(--fg-48);
+}
+
 .modal-blurb {
   margin: 0;
-  color: #bbbbbb;
+  color: var(--fg-64);
   font-size: 1rem;
   line-height: 1.5;
 }
 
 .modal-role .role-label {
-  color: var(--accent);
+  color: var(--fg);
   font-weight: 600;
   font-size: 0.9rem;
 }
 
 .modal-role .role-text {
-  color: #bbbbbb;
+  color: var(--fg-64);
   font-size: 0.9rem;
 }
 
 .year-label {
-  color: var(--accent);
+  color: var(--fg);
   font-weight: 600;
   font-size: 0.85rem;
-  
 }
 
 .year-text {
-  color: #bbbbbb;
+  color: var(--fg-64);
   font-size: 0.85rem;
 }
 
 .modal-close {
-.modal-header {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 24px 32px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  background: linear-gradient(160deg, rgba(10, 16, 22, 0.92), rgba(8, 10, 14, 0.78));
-}
   width: 44px;
   height: 44px;
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 1.8rem;
+  line-height: 1;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--fg-64);
+  cursor: pointer;
   border-radius: 50%;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
 }
 
 .modal-close:hover {
-  background: rgba(77, 215, 255, 0.2);
-  transform: translateY(-2px);
+  background: var(--hover-overlay);
+  color: var(--fg);
 }
 
 .modal-body {
   padding: 24px 32px 32px;
-  color: #cccccc;
+  color: var(--fg-64);
   line-height: 1.6;
   overflow-y: auto;
   flex: 1;
@@ -193,7 +156,7 @@
 .modal-body h4,
 .modal-body h5,
 .modal-body h6 {
-  color: var(--accent);
+  color: var(--fg);
   margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
@@ -213,16 +176,16 @@
 }
 
 .modal-body code {
-  background: var(--border);
+  background: var(--surface-2);
   padding: 2px 6px;
   border-radius: 4px;
   font-family: 'Courier New', monospace;
 }
 
 .modal-body pre {
-  background: var(--border);
+  background: var(--surface-2);
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow-x: auto;
   margin: 1em 0;
 }
@@ -233,19 +196,19 @@
 }
 
 .modal-body blockquote {
-  border-left: 4px solid var(--accent);
+  border-left: 3px solid var(--border-solid);
   margin: 1em 0;
   padding-left: 1em;
-  color: #aaaaaa;
+  color: var(--fg-48);
 }
 
 .modal-body a {
-  color: var(--accent);
-  text-decoration: none;
+  color: var(--fg);
+  text-decoration: underline;
 }
 
 .modal-body a:hover {
-  text-decoration: underline;
+  opacity: 0.75;
 }
 
 @media (max-width: 768px) {
@@ -257,20 +220,19 @@
     width: 95%;
     max-height: calc(100vh - 128px);
   }
-  
+
   .modal-header {
     padding: 15px 20px;
   }
-  
+
   .modal-body {
     padding: 20px;
   }
-} 
+}
 
 .markdown-content img {
-  border-radius: 15px;  /* example for Markdown */
-  width: 100%;         /* scale nicely */
-  height: auto;        /* preserve aspect ratio */
-  object-fit: cover;   /* optional, if you want cropping */
-  margin: 1rem 0;      /* optional spacing */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin: 1rem 0;
 }

@@ -46,6 +46,8 @@ export const projects = [
     {
         id: 4,
         projectName: 'HackEurope 2026',
+        codename: '',
+        featured: true,
         technologyUsed: ['React', 'Javascript', 'Python', 'Vite', 'CSS', 'Claude'],
         type: ['Hackathon', 'Web'],
         role: 'API Developer, Backend Developer',
@@ -62,6 +64,8 @@ export const projects = [
     {
         id: 8,
         projectName: 'Remento',
+        codename: '',
+        featured: true,
         technologyUsed: ['Swift', 'Javascript'],
         type: ['Hackathon', 'Mobile'],
         role: 'Frontend Developer',
@@ -75,6 +79,7 @@ export const projects = [
     {
         id: 6,
         projectName: 'OnSite',
+        codename: '',
         technologyUsed: ['Swift'],
         type: ['Mobile', "Software"],
         role: 'Founder',
@@ -91,6 +96,8 @@ export const projects = [
     {
         id: 1000,
         projectName: 'UCC Rocketry',
+        codename: '',
+        featured: true,
         technologyUsed: ['Raspberry Pi', 'ESP32/ESP8266', 'C++', 'Arduino'],
         type: ['Hardware'],
         role: 'CanSat Lead, Hardware Avionics Member',
@@ -102,6 +109,7 @@ export const projects = [
     {
         id: 9,
         projectName: 'Reeves',
+        codename: '',
         technologyUsed: ['Javascript', 'CSS', 'React', 'Vite'],
         type: ['Hackathon', 'Web'],
         role: 'Frontend Developer',
@@ -116,6 +124,7 @@ export const projects = [
     {
         id: 1,
         projectName: 'Gymificient',
+        codename: '',
         technologyUsed: ['Python', 'C#', 'OpenCV', 'Blazor', 'Azure', 'SQL', 'CSS'],
         type: ['Web', "Software"],
         role: 'Backend Engineer, Demo Day Pitcher',
@@ -132,6 +141,7 @@ export const projects = [
     {
         id: 2,
         projectName: 'GCC CanSat 2024',
+        codename: '',
         technologyUsed: ['3D Printing', 'Fusion 360', 'ESP32/ESP8266', 'Arduino', 'C++', 'Tensorflow', 'Python'],
         type: ["Software", "Hardware"],
         role: 'Lead 3D Design/Printing, Lead ML Engineer',
@@ -145,6 +155,7 @@ export const projects = [
     {
         id: 3,
         projectName: 'GCC CanSat 2023',
+        codename: '',
         technologyUsed: ['3D Printing', 'Arduino', 'C++'],
         type: ["Software", "Hardware"],
         role: 'Lead Programmer, Lead 3D Printing',
@@ -158,6 +169,7 @@ export const projects = [
     {
         id: 5,
         projectName: 'UDP Telemetry Parsers',
+        codename: '',
         technologyUsed: ['C++', 'ESP32/ESP8266', 'Arduino', 'Python', 'Javascript'],
         type: ['Software', 'Hardware'],
         role: '',
@@ -305,18 +317,10 @@ export const techIconMap = {
   'Raspberry Pi': < SiRaspberrypi color="#f70531" />
 };
 
-export const statusMap = {
-    0: 'Complete',
-    1: 'Ongoing',
-    2: 'Work In Progress'
-  };
-
 export const statusLabels = ['Complete', 'Ongoing', 'Work In Progress'];
 
-export const statusColorMap = {
-    0: "#2d5a2d",         // dark green
-    1: "#2d4a5a",          // dark blue
-    2: "#5a4a2d" // dark yellow/amber
+export const statusClassMap = {
+    0: 'status-complete',
+    1: 'status-ongoing',
+    2: 'status-wip'
   };
-
-export const jobTypes = ['Hackathon', 'Hardware', 'Mobile', 'Software', 'Web'];

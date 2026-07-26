@@ -1,209 +1,153 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { TbBrandLinkedin, TbBrandGithub } from 'react-icons/tb';
+import { pageTransition, fadeUp, staggerContainer, staggerItem } from '../motion/variants';
+import RevealSection from '../motion/RevealSection';
+import TimelineLogo from '../components/TimelineLogo';
+import { timelineEvents } from '../data/timelineData';
 import './About.css';
 
-const timelineEvents = [
-  {
-    year: 'September 2014',
-    title: 'First CoderDojo Session',
-    description: 'Attended my first CoderDojo session at age eight. The spark that started everything.',
-  },
-  {
-    year: '2016-2018',
-    title: 'Coolest Projects',
-    description: 'Entered one software and two hardware projects in three consecutive years of Coolest Projects. Various projects spanning cargo container calculators, to medication dispensers.',
-  },
-  {
-    year: '2023-2024',
-    title: 'CanSat Competition',
-    description: 'Designed and launched two CanSat, integrating sensors, telemetry, and recovery systems. Won regional competition.',
-  },
-  {
-    year: 'July 2024 - September 2024',
-    title: 'Patch 2024',
-    description: 'One of thirty people selected for Patch 2024, a startup accelerator program. Co-founded Gymificient, an actionable analytics platform for gyms, and pitched at Demo Day.',
-  },
-  // {
-  //   year: '2024 - 2025',
-  //   title: 'Leaving Certificate',
-  //   description: 'Took a break from project work to focus on preparing for the Leaving Certificate, achieving 589/625 points.',
-  // },
-  {
-    year: 'February 2026',
-    title: 'National SDG Hackathon Winner',
-    description: 'Won €4K in prize money over two SDG hackathons (regional and national) with the idea Remento.',
-  },
-  // {
-  //   year: 'March 2026',
-  //   title: 'CETB Dick Langford Award',
-  //   description: 'Received the CETB Dick Langford Leaving Certificate Award for outstanding results.',
-  // },
-  {
-    year: 'May 2026',
-    title: 'UCC Student Entrepreneur of the Year Finalist',
-    description: 'Finalist in the UCC Student Entrepreneur of the Year competition, recognised for entrepreneurial and innovative initiatives on campus.',
-  },
-  {
-    year: 'September 2025 - Present',
-    title: 'Engineering @ UCC',
-    description: 'Studying Engineering (CK600) at University College Cork.',
-  },
-  // {
-  //   year: 'September 2025 - Present',
-  //   title: 'UCC Rocketry and Space Society',
-  //   description: 'Academic officer for rocketry society. Head of CanSat avionics development for the engineering team.',
-  // },
-  // {
-  //   year: 'January 2026 - Present',
-  //   title: 'OnSite',
-  //   description: 'Founder of OnSite, the all-in-one mobile app for tradespeople.',
-  // },
-  {
-    year: 'June 2026 - Present',
-    title: 'SWUX Design Intern @ Logitech',
-    description: 'Interning on the Software UX design team at Logitech, working on user research, prototyping, and design for Options+.',
-  },
-  // {
-  //   year: 'September 2026 - Present',
-  //   title: 'UCC Quercus Talented Students Programme Scholar',
-  //   description: 'UCC Quercus Innovation and Entrepreneurship Scholar for the duration of my undergraduate studies.',
-  // },
-].reverse();
+const headlineWords = ['Engineer.', 'Builder.', 'Innovator.'];
+
+const quickFacts = [
+  { label: 'From', value: 'Cork, Ireland' },
+  { label: 'Attending', value: 'University College Cork' },
+  { label: 'Studying', value: 'Engineering (CK600)' },
+  { label: 'Currently', value: 'SWUX Design Intern @ Logitech' },
+  { label: 'Building Since', value: '2014 — first CoderDojo at 8' },
+  { label: 'Focus', value: 'Electronics & embedded systems' },
+  { label: 'Also Into', value: 'AI, rocketry, motorsport' },
+  { label: 'Awarded', value: 'CETB Dick Langford Award' },
+];
 
 export default function About() {
   const timelineRef = useRef(null);
-  const lineGlowRef = useRef(null);
-
-  // Animate cards in on scroll
-  useEffect(() => {
-    const items = timelineRef.current?.querySelectorAll('.timeline-item');
-    if (!items) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    items.forEach((item) => observer.observe(item));
-    return () => observer.disconnect();
-  }, []);
-
-  // Drive the neon line fill based on scroll position
-  useEffect(() => {
-    const onScroll = () => {
-      const timeline = timelineRef.current;
-      const glow = lineGlowRef.current;
-      if (!timeline || !glow) return;
-
-      const nodes = timeline.querySelectorAll('.timeline-node');
-      const lastNode = nodes[nodes.length - 1];
-      if (!lastNode) return;
-
-      const rect = timeline.getBoundingClientRect();
-      const lastNodeRect = lastNode.getBoundingClientRect();
-
-      // Distance from timeline top to the centre of the last node (fixed regardless of scroll)
-      const lastNodeTarget = lastNodeRect.top + lastNodeRect.height / 2 - rect.top;
-      // How far past the timeline top the 55% viewport point currently is
-      const scrolled = window.innerHeight * 0.55 - rect.top;
-      const progress = Math.min(1, Math.max(0, scrolled / lastNodeTarget));
-      glow.style.height = `${progress * 100}%`;
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ['start center', 'end end'],
+  });
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    <div className="about-page">
-      <div className="about-header page-header">
-        <p className="page-eyebrow">Who I Am</p>
-        <h1 className="page-title">About</h1>
-        <p className="page-description">
-          Engineering student focused on building practical systems that blend
-          software and hardware.
-        </p>
-      </div>
+    <motion.div className="about-page" variants={pageTransition} initial="hidden" animate="show" exit="exit">
+      <section className="about-hero">
+        <div className="about-hero-row">
+          <motion.div className="about-hero-intro" variants={fadeUp} initial="hidden" animate="show">
+            <p className="about-eyebrow">Who I Am</p>
+            <p className="about-intro">
+              I'm Nathan Manley, a 20-year-old engineering student at UCC with a decade-long habit
+              of turning ideas into working hardware and software — from CanSat avionics to
+              hackathon-winning apps. I care about practical systems: things that ship, and things
+              that hold up outside a slide deck.
+            </p>
+            <a className="hero-readmore" href="#more">Read More ↓</a>
+          </motion.div>
 
-      <header className="about-hero">
-        <div className="about-identity-card">
-          <div className="about-profile-image">
-            <img src="./assets/nathan.webp" alt="Nathan Manley" />
+          <div className="about-hero-photo">
+            <div className="about-hero-circle" aria-hidden="true" />
+            <motion.img
+              src="./assets/nathan.webp"
+              alt="Nathan Manley"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            />
           </div>
-          <div className="about-profile-info">
-            <p className="about-eyebrow">Engineer • Builder • Mentor</p>
-            <h1>Nathan Manley</h1>
-            <h2>Engineering @ UCC</h2>
-            <p className="about-intro">Passionate innovator with a strong foundation in electronics, programming, and practical problem solving.</p>
-            <p className="about-location">Cork, Ireland</p>
-          </div>
-          <div className="about-profile-spacer" aria-hidden="true" />
+
+          <motion.div
+            className="about-hero-headline"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="show"
+          >
+            {headlineWords.map((word) => (
+              <motion.span key={word} className="headline-line" variants={staggerItem}>
+                {word}
+              </motion.span>
+            ))}
+          </motion.div>
         </div>
-      </header>
 
-      <section className="about-grid">
-        <article className="about-card">
-          <h3>About Me</h3>
-          <p>
-            I'm a 20-year-old engineering student at UCC with a passion for electronics, microcontrollers, and motorsport.
-            My journey began early, when I attended my first CoderDojo session at 8 years old.
-          </p>
-        </article>
-
-        <article className="about-card">
-          <h3>Background</h3>
-          <p>
-            I'm currently studying Engineering at UCC after a successful Leaving Certificate, for which I received the CETB Dick
-            Langford Leaving Certificate Award for my results. Through engineering, I'm building on my foundation in electronics,
-            programming, and problem-solving across business, software, and hardware projects.
-          </p>
-        </article>
-
-        <article className="about-card about-card-wide">
-          <h3>Skills & Interests</h3>
-          <ul className="about-skills">
-            <li><strong>Electronics:</strong> Circuit design, microcontroller programming, sensor integration</li>
-            <li><strong>Programming:</strong> Python, C++, SwiftUI, JavaScript</li>
-            <li><strong>Software Development:</strong> C++ library design, React and Electron app development</li>
-            <li><strong>3D Design:</strong> Autodesk Fusion 360, 3D printing</li>
-            <li><strong>Robotics:</strong> VEX Robotics, CanSat competitions, autonomous systems</li>
-          </ul>
-        </article>
-
-        <article className="about-card about-card-highlight">
-          <h3>Goals</h3>
-          <p>
-            I'm excited to apply my skills to practical projects, especially AI, rocketry, motorsport,
-            and the intersection of electronics and software.
-          </p>
-        </article>
+        <div className="about-hero-bottom">
+          <div className="hero-socials">
+            <a href="https://www.linkedin.com/in/nathan-manley" target="_blank" rel="noreferrer" aria-label="LinkedIn"><TbBrandLinkedin /></a>
+            <a href="https://github.com/MacManley" target="_blank" rel="noreferrer" aria-label="GitHub"><TbBrandGithub /></a>
+          </div>
+          <p className="hero-location">Cork, Ireland</p>
+        </div>
       </section>
 
-      <section className="timeline-section">
-        <div className="timeline-header">
-          <p className="page-eyebrow">My Journey</p>
-          <h2 className="timeline-title">Timeline</h2>
-        </div>
-        <div className="timeline" ref={timelineRef}>
-          {timelineEvents.map((event, i) => (
-            <div key={i} className={`timeline-item ${i % 2 === 0 ? 'timeline-left' : 'timeline-right'}`} style={{ '--delay': `${i * 0.08}s` }}>
-              <div className="timeline-card">
-                <span className="timeline-year">{event.year}</span>
-                <h3 className="timeline-event-title">{event.title}</h3>
-                <p className="timeline-event-desc">{event.description}</p>
-              </div>
-              <div className="timeline-node" />
+      <section id="more" className="about-more">
+        <div className="about-more-column about-timeline-column">
+          <div className="about-more-heading">
+            <p className="page-eyebrow">My Journey</p>
+            <h2>Timeline</h2>
+          </div>
+          <div className="timeline-list" ref={timelineRef}>
+            <div className="timeline-track">
+              <div className="timeline-track-fill" />
+              <motion.div className="timeline-track-progress" style={{ height: lineHeight }} />
             </div>
-          ))}
-          <div className="timeline-line" />
-          <div className="timeline-line-glow" ref={lineGlowRef} />
+            {timelineEvents.map((event, i) => (
+              <motion.div
+                key={i}
+                className="timeline-row"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ delay: i * 0.06, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <TimelineLogo src={event.logo} alt={event.title} />
+                <div className="timeline-row-content">
+                  <span className="timeline-year">{event.year}</span>
+                  <h3 className="timeline-event-title">{event.title}</h3>
+                  <p className="timeline-event-desc">{event.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div className="about-more-column about-cards-column">
+          <RevealSection className="about-card about-card-facts" delay={0}>
+            <h3>At a Glance</h3>
+            <dl className="about-facts">
+              {quickFacts.map((fact) => (
+                <div className="fact-cell" key={fact.label}>
+                  <dt className="fact-label">{fact.label}</dt>
+                  <dd className="fact-value">{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </RevealSection>
+
+          <RevealSection className="about-card" delay={0.06}>
+            <h3>Background</h3>
+            <p>
+              I'm currently studying Engineering at UCC after a successful Leaving Certificate, for which I received the CETB Dick
+              Langford Leaving Certificate Award for my results. Through engineering, I'm building on my foundation in electronics,
+              programming, and problem-solving across business, software, and hardware projects.
+            </p>
+          </RevealSection>
+
+          <RevealSection className="about-card" delay={0.12}>
+            <h3>Skills & Interests</h3>
+            <ul className="about-skills">
+              <li><strong>Electronics:</strong> Circuit design, microcontroller programming, sensor integration</li>
+              <li><strong>Programming:</strong> Python, C++, SwiftUI, JavaScript</li>
+              <li><strong>Software Development:</strong> C++ library design, React and Electron app development</li>
+              <li><strong>3D Design:</strong> Autodesk Fusion 360, 3D printing</li>
+              <li><strong>Robotics:</strong> VEX Robotics, CanSat competitions, autonomous systems</li>
+            </ul>
+          </RevealSection>
+
+          <RevealSection className="about-card about-card-highlight" delay={0.18}>
+            <h3>Goals</h3>
+            <p>
+              I'm excited to apply my skills to practical projects, especially AI, rocketry, motorsport,
+              and the intersection of electronics and software.
+            </p>
+          </RevealSection>
         </div>
       </section>
 
@@ -211,6 +155,6 @@ export default function About() {
         <p>© 2026 • Nathan Manley</p>
         <p>All Rights Reserved</p>
       </div>
-    </div>
+    </motion.div>
   );
 }
