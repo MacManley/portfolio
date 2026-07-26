@@ -1,19 +1,16 @@
 import { useState } from "react";
-import DropdownMenu from "../components/Dropdown";
-import Status from "../components/StatusButtons"
+import { motion } from "framer-motion";
 import ProjectsView from "../components/ViewProjects";
-import { jobTypes } from "../data/projectsData";
-import { TbSearch, TbX } from 'react-icons/tb';
+import { pageTransition } from "../motion/variants";
 import '../index.css'
 
+const categories = ['All', 'Hardware', 'Software'];
+
 function Projects() {
-  const [selectedTechnology, setSelectedTechnology] = useState(null);
-  const [selectedStatus, setSelectedStatus] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedType, setSelectedType] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
    return (
-   <div className="projects-page">
+   <motion.div className="projects-page" variants={pageTransition} initial="hidden" animate="show" exit="exit">
     <div className="projects-header page-header">
        <p className="page-eyebrow">WHAT I WORK ON</p>
        <h1 className="page-title">Projects</h1>
@@ -23,53 +20,27 @@ function Projects() {
        </p>
      </div>
      <div className="filters">
-       <div className="search-bar-wrap">
-         <TbSearch className="search-icon" />
-         <input
-           className="search-bar"
-           type="text"
-           placeholder="Search projects..."
-           value={searchQuery}
-           onChange={(e) => setSearchQuery(e.target.value)}
-         />
-         {searchQuery && (
-           <button className="search-clear" onClick={() => setSearchQuery('')} aria-label="Clear search">
-             <TbX />
-           </button>
-         )}
-       </div>
        <div className="type-filter-row">
-         {jobTypes.map((type) => (
+         {categories.map((category) => (
            <button
-             key={type}
-             className={`button-main filter-pill type-pill ${selectedType === type ? 'filter-pill-active' : ''}`}
-             onClick={() => setSelectedType(selectedType === type ? null : type)}
+             key={category}
+             className={`button-main filter-pill type-pill ${selectedCategory === category ? 'filter-pill-active' : ''}`}
+             onClick={() => setSelectedCategory(category)}
            >
-             {type}
+             {category}
            </button>
          ))}
        </div>
-       <div className="filters-row">
-         <DropdownMenu selectedTechnology={selectedTechnology}
-                       setSelectedTechnology={setSelectedTechnology} />
-         <Status selectedStatus={selectedStatus}
-                 setSelectedStatus={setSelectedStatus} />
-       </div>
      </div>
      <div className="projects-roundup">
-      <ProjectsView
-        technologyFilter={selectedTechnology}
-        statusFilter={selectedStatus}
-        searchQuery={searchQuery}
-        typeFilter={selectedType}
-      />
+      <ProjectsView categoryFilter={selectedCategory} />
       </div>
 
       <div className="page-footer-note">
         <p>© 2026 • Nathan Manley</p>
         <p>All Rights Reserved</p>
       </div>
-     </div>
+     </motion.div>
    );
  }
 
