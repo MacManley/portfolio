@@ -11,14 +11,14 @@
 
 .about-hero {
 	position: relative;
-	min-height: calc(100vh - 130px);
+	min-height: calc(100vh - 240px);
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	max-width: 1400px;
 	margin: 0 auto;
 	width: 100%;
-	padding: 20px 0 40px;
+	padding: 20px 0 8px;
 }
 
 .about-hero-row {
@@ -108,7 +108,8 @@
 .about-more {
 	scroll-margin-top: 100px;
 	max-width: 1400px;
-	margin: 60px auto 0;
+	/* keeps the section fully below the fold — hero ends at ~100vh - 112px */
+	margin: 170px auto 0;
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -368,6 +369,7 @@
 	.about-more {
 		grid-template-columns: 1fr;
 		gap: 56px;
+		margin-top: 80px;
 	}
 }
 

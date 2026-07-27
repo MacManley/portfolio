@@ -36,9 +36,9 @@ export default function About() {
             <p className="about-eyebrow">Who I Am</p>
             <p className="about-intro">
               I'm Nathan Manley, a 20-year-old engineering student at UCC with a decade-long habit
-              of turning ideas into working hardware and software — from CanSat avionics to
-              hackathon-winning apps. I care about practical systems: things that ship, and things
-              that hold up outside a slide deck.
+              of turning ideas into working hardware and software. From CanSat avionics to
+              hackathon-winning apps, I care about practical systems: things that ship, and things
+              that hold up outside pitch decks.
             </p>
             <a className="hero-readmore" href="#more">Read More ↓</a>
           </motion.div>
