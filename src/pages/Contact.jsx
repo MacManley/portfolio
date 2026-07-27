@@ -75,7 +75,7 @@ export default function Contact() {
     <motion.div className="contact-page" variants={pageTransition} initial="hidden" animate="show" exit="exit">
       <section className="contact-hero">
         <p className="page-eyebrow">WHERE TO FIND ME</p>
-        <h1 className="page-title contact-headline">Reach Out.</h1>
+        <h1 className="page-title contact-headline">Contact</h1>
         <p className="contact-hero-sub">
           Whether it's a project, partnership, or just a quick question, I'm
           always open to a new challenge. Share what you're building and I will respond.
@@ -90,7 +90,7 @@ export default function Contact() {
               </a>
             ))}
           </div>
-          <p className="hero-location">Usually replies within 48 hours</p>
+          <p className="hero-location">I usually reply within 48 hours</p>
         </div>
       </section>
 
@@ -121,7 +121,7 @@ export default function Contact() {
 
           <RevealSection className="contact-card cv-card" delay={0.08}>
             <h3>CV & Track Record</h3>
-            <p>Grab my latest CV, jump into PDF view or download it.</p>
+            <p>View or download my CV.</p>
             <div className="cv-actions">
               <button className="button-main" onClick={() => setShowModal(true)}>
                 View CV

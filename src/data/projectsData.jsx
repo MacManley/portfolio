@@ -46,7 +46,7 @@ export const projects = [
     {
         id: 4,
         projectName: 'HackEurope 2026',
-        codename: '',
+        codename: 'Aeolus',
         featured: true,
         technologyUsed: ['React', 'Javascript', 'Python', 'Vite', 'CSS', 'Claude'],
         type: ['Hackathon', 'Web'],
@@ -64,7 +64,7 @@ export const projects = [
     {
         id: 8,
         projectName: 'Remento',
-        codename: '',
+        codename: 'Remento',
         featured: true,
         technologyUsed: ['Swift', 'Javascript'],
         type: ['Hackathon', 'Mobile'],
@@ -79,7 +79,7 @@ export const projects = [
     {
         id: 6,
         projectName: 'OnSite',
-        codename: '',
+        codename: 'Geras',
         technologyUsed: ['Swift'],
         type: ['Mobile', "Software"],
         role: 'Founder',
@@ -96,7 +96,7 @@ export const projects = [
     {
         id: 1000,
         projectName: 'UCC Rocketry',
-        codename: '',
+        codename: 'Cerberus, Orthrus',
         featured: true,
         technologyUsed: ['Raspberry Pi', 'ESP32/ESP8266', 'C++', 'Arduino'],
         type: ['Hardware'],
@@ -109,7 +109,7 @@ export const projects = [
     {
         id: 9,
         projectName: 'Reeves',
-        codename: '',
+        codename: 'Reeves',
         technologyUsed: ['Javascript', 'CSS', 'React', 'Vite'],
         type: ['Hackathon', 'Web'],
         role: 'Frontend Developer',
@@ -124,7 +124,7 @@ export const projects = [
     {
         id: 1,
         projectName: 'Gymificient',
-        codename: '',
+        codename: 'Kratos',
         technologyUsed: ['Python', 'C#', 'OpenCV', 'Blazor', 'Azure', 'SQL', 'CSS'],
         type: ['Web', "Software"],
         role: 'Backend Engineer, Demo Day Pitcher',
@@ -141,7 +141,7 @@ export const projects = [
     {
         id: 2,
         projectName: 'GCC CanSat 2024',
-        codename: '',
+        codename: 'Hephaestus',
         technologyUsed: ['3D Printing', 'Fusion 360', 'ESP32/ESP8266', 'Arduino', 'C++', 'Tensorflow', 'Python'],
         type: ["Software", "Hardware"],
         role: 'Lead 3D Design/Printing, Lead ML Engineer',
@@ -155,7 +155,7 @@ export const projects = [
     {
         id: 3,
         projectName: 'GCC CanSat 2023',
-        codename: '',
+        codename: 'Janus',
         technologyUsed: ['3D Printing', 'Arduino', 'C++'],
         type: ["Software", "Hardware"],
         role: 'Lead Programmer, Lead 3D Printing',
@@ -169,7 +169,7 @@ export const projects = [
     {
         id: 5,
         projectName: 'UDP Telemetry Parsers',
-        codename: '',
+        codename: 'Hermes',
         technologyUsed: ['C++', 'ESP32/ESP8266', 'Arduino', 'Python', 'Javascript'],
         type: ['Software', 'Hardware'],
         role: '',
