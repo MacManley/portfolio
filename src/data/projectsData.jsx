@@ -51,7 +51,7 @@ export const projects = [
         technologyUsed: ['React', 'Javascript', 'Python', 'Vite', 'CSS', 'Claude'],
         type: ['Hackathon', 'Web'],
         role: 'API Developer, Backend Developer',
-        blurb: 'HackEurope 2026 Hackathon Project',
+        blurb: 'HackEurope 2026 Hackathon Project.',
         status: 0,
         links: [
             {label: 'Website', url: 'https://windsite.cloud', site: 'Web'},
@@ -69,7 +69,7 @@ export const projects = [
         technologyUsed: ['Swift', 'Javascript'],
         type: ['Hackathon', 'Mobile'],
         role: 'Frontend Developer',
-        blurb: 'Catching and monitoring early-stage dementia.',
+        blurb: 'Catching and monitoring elderly dementia.',
         status: 1,
         links: [
             {label: '2x Hackathon Winner', url: 'https://www.linkedin.com/posts/nathan-manley_amped-to-announce-remento-won-best-pitch-activity-7431676671654645760-XO68', site: 'Web'}
@@ -83,7 +83,7 @@ export const projects = [
         technologyUsed: ['Swift'],
         type: ['Mobile', "Software"],
         role: 'Founder',
-        blurb: 'The all-in-one mobile app for tradespeople.',
+        blurb: 'The all-in-one app for tradespeople.',
         status: 1,
         links: [
            {label: 'UCC SEOTY Finalist', url: '/', site: 'Web'},
@@ -101,7 +101,7 @@ export const projects = [
         technologyUsed: ['Raspberry Pi', 'ESP32/ESP8266', 'C++', 'Arduino'],
         type: ['Hardware'],
         role: 'CanSat Lead, Hardware Avionics Member',
-        blurb: 'UCC Rocketry and Space Exploration Society',
+        blurb: 'UCC RSES CAD & Programming.',
         status: 1,
         links: [],
         year: [2025, 2026]
@@ -128,7 +128,7 @@ export const projects = [
         technologyUsed: ['Python', 'C#', 'OpenCV', 'Blazor', 'Azure', 'SQL', 'CSS'],
         type: ['Web', "Software"],
         role: 'Backend Engineer, Demo Day Pitcher',
-        blurb: 'Patch 2024, actionable analytics for gyms',
+        blurb: 'Patch 2024, actionable analytics for gyms.',
         status: 0,
         links: [
             {label: 'Gymificient Pitch', url: 'https://youtu.be/jycqwSAHBu0?feature=shared', site: 'Youtube'},
@@ -145,7 +145,7 @@ export const projects = [
         technologyUsed: ['3D Printing', 'Fusion 360', 'ESP32/ESP8266', 'Arduino', 'C++', 'Tensorflow', 'Python'],
         type: ["Software", "Hardware"],
         role: 'Lead 3D Design/Printing, Lead ML Engineer',
-        blurb: 'Glanmire Community College 2024 CanSat',
+        blurb: 'Glanmire Community College \'24 CanSat.',
         status: 0,
         links: [
             {label: 'CanSat 2024 Repository', url: 'https://github.com/MacManley/cansat/tree/main/2024' , site: 'GitHub'},
@@ -159,7 +159,7 @@ export const projects = [
         technologyUsed: ['3D Printing', 'Arduino', 'C++'],
         type: ["Software", "Hardware"],
         role: 'Lead Programmer, Lead 3D Printing',
-        blurb: 'Glanmire Community College 2023 CanSat',
+        blurb: 'Glanmire Community College \'23 CanSat.',
         status: 0, // complete
         links: [
             {label: 'CanSat 2023 Repository', url: 'https://github.com/MacManley/cansat/tree/main/2023', site: 'GitHub'},
@@ -173,14 +173,14 @@ export const projects = [
         technologyUsed: ['C++', 'ESP32/ESP8266', 'Arduino', 'Python', 'Javascript'],
         type: ['Software', 'Hardware'],
         role: '',
-        blurb: 'Parsing UDP telemetry from racing video games',
+        blurb: 'Parsing UDP telemetry from racing games.',
         status: 0,
         links: [
             {label: 'Libraries Collection', url: 'https://github.com/stars/MacManley/lists/esp32-esp8266-udp-telemetry', site: 'GitHub'},
             {label: 'GT7 UDP Plotly Visualiser', url: 'https://github.com/MacManley/gt7-track-visualizer', site: 'GitHub'},
             {label: 'GT7 Sport Mode Leaderboard Scraper', url: 'https://github.com/MacManley/gt7-leaderboards', site: 'GitHub'}
         ],
-        year: [2023, 2025, 2026]
+        year: [2023, 2026]
     },
     // {
     //     id: 69,

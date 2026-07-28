@@ -18,17 +18,18 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding-top: 10px;
 }
 
-/* Sized by .page-title so the Contact heading matches Blog and Portfolio */
-.contact-headline {
-  margin: 0;
+/* Eyebrow/title/sub sit in .page-header so the header block lands on exactly
+   the same baseline as Blog and Portfolio — the hero's own gap must not add
+   extra space inside it. */
+.contact-hero-head {
+  width: 100%;
 }
 
 .contact-hero-sub {
   max-width: 620px;
-  margin: 0;
+  margin: 0 auto;
   color: var(--fg-80);
   line-height: 1.7;
   font-size: 1.05rem;

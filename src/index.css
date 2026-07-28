@@ -238,17 +238,6 @@ h2 {
   min-height: 40vh;
 }
 
-/* Filters styling */
-.filters {
-   user-select: none;
-  -webkit-user-select: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 15px;
-}
-
 .button-main {
   background-color: transparent;
   border: 2px solid var(--border-solid);
@@ -280,23 +269,6 @@ h2 {
 .button-main:disabled:hover {
   background-color: transparent;
   color: var(--fg-48);
-}
-
-.type-filter-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.type-pill {
-  min-width: unset;
-  padding: 9px 18px;
-  font-size: 0.9rem;
-}
-
-.projects-roundup {
-  padding: 15px;
 }
 
 /* Responsive design */

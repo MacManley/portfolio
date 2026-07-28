@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import './ProjectModal.css';
@@ -7,17 +7,61 @@ import { modalOverlayVariants, modalContentVariants } from '../motion/variants';
 
 function ProjectModal({ isOpen, onClose, onCloseComplete, selectedProject, prefetchedMarkdown }) {
   const [markdownContent, setMarkdownContent] = useState('');
+  const contentRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const openerRef = useRef(null);
 
+  // Scroll lock, Escape to close, and a focus trap that hands focus back to
+  // whatever opened the dialog.
   useEffect(() => {
-    if (typeof document === 'undefined') {
+    if (typeof document === 'undefined' || !isOpen) {
       return undefined;
     }
 
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
+    openerRef.current = document.activeElement;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        onClose();
+        return;
+      }
+
+      if (event.key !== 'Tab' || !contentRef.current) {
+        return;
+      }
+
+      const focusable = contentRef.current.querySelectorAll(
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) {
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
-  }, [isOpen]);
+
+    document.addEventListener('keydown', handleKeyDown);
+    const focusFrame = requestAnimationFrame(() => closeButtonRef.current?.focus());
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = '';
+      if (openerRef.current instanceof HTMLElement) {
+        openerRef.current.focus();
+      }
+    };
+  }, [isOpen, onClose]);
 
   useEffect(() => {
     if (!isOpen) {
@@ -60,6 +104,10 @@ function ProjectModal({ isOpen, onClose, onCloseComplete, selectedProject, prefe
         >
           <motion.div
             className="modal-content"
+            ref={contentRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="project-modal-title"
             onClick={e => e.stopPropagation()}
             variants={modalContentVariants}
             initial="hidden"
@@ -68,7 +116,7 @@ function ProjectModal({ isOpen, onClose, onCloseComplete, selectedProject, prefe
           >
             <div className="modal-header">
               <div className="modal-header-content">
-                <p className="modal-codename">{selectedProject.projectName}</p>
+                <p className="modal-codename" id="project-modal-title">{selectedProject.projectName}</p>
                 <div className="modal-project-info">
                   <p className="modal-blurb">{selectedProject.blurb}</p>
                   <div className="modal-designation">
@@ -89,7 +137,15 @@ function ProjectModal({ isOpen, onClose, onCloseComplete, selectedProject, prefe
                   </div>
                   </div>
               </div>
-              <button className="modal-close" onClick={onClose}>×</button>
+              <button
+                className="modal-close"
+                ref={closeButtonRef}
+                type="button"
+                aria-label="Close project details"
+                onClick={onClose}
+              >
+                ×
+              </button>
             </div>
             <div className="modal-body">
               <div className="markdown-content">

@@ -74,12 +74,14 @@ export default function Contact() {
   return (
     <motion.div className="contact-page" variants={pageTransition} initial="hidden" animate="show" exit="exit">
       <section className="contact-hero">
-        <p className="page-eyebrow">WHERE TO FIND ME</p>
-        <h1 className="page-title contact-headline">Contact</h1>
-        <p className="contact-hero-sub">
-          Whether it's a project, partnership, or just a quick question, I'm
-          always open to a new challenge. Share what you're building and I will respond.
-        </p>
+        <div className="contact-hero-head page-header">
+          <p className="page-eyebrow">WHERE TO FIND ME</p>
+          <h1 className="page-title">Contact</h1>
+          <p className="contact-hero-sub">
+            Whether it's a project, partnership, or just a quick question, I'm
+            always open to a new challenge. Share what you're building and I will respond.
+          </p>
+        </div>
         <a className="hero-readmore" href="#get-in-touch">Get In Touch ↓</a>
 
         <div className="contact-hero-bottom">
