@@ -1,104 +1,101 @@
-.projects-page {
-    min-height: 100vh;
-    padding: 26px 0 80px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.projects-header {
-    margin: 0 auto;
-    padding: 0;
-}
-
-img {
-    object-fit: cover;
-}
-
 .project-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    padding: 45px 20px 45px;
+    padding: 28px 0 45px;
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
 }
 
+/* Cards sit on a hairline sheet: the 1px gap is the only rule between them,
+   and the outline gives the outer edge the same weight. */
 .project-row {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2px;
+    gap: 1px;
     max-width: 1200px;
     width: 100%;
     margin: 0;
     background: var(--border-hairline);
+    outline: 1px solid var(--border-hairline);
 }
 
 .project-card {
     box-sizing: border-box;
     background: var(--bg);
-    border: 2px solid var(--border-solid);
     overflow: hidden;
-    transition: background 0.3s ease, color 0.3s ease;
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    transition: background 0.3s ease;
 }
 
-.project-card--feature {
-    grid-column: span 1;
+/* ── Hero card: first project in the filtered set, full grid width ── */
+
+.project-card--hero {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
+    align-items: stretch;
 }
 
-@media (min-width: 900px) {
-    .project-card--feature {
-        grid-column: span 2;
-    }
-
-    .project-card--feature .project-image {
-        height: 280px;
-    }
-
-    .project-card--feature .project-name {
-        font-size: 1.6rem;
-    }
-
-    /* Double-width card has room to keep icons and codename on one line */
-    .project-card--feature .project-content-footer {
-        flex-direction: row;
-        align-items: flex-end;
-        justify-content: space-between;
-        gap: 12px;
-    }
+.project-card--hero .project-image {
+    aspect-ratio: 16 / 9;
+    height: 100%;
 }
 
-/* Blurb shown inline on featured tiles (visible on touch too, unlike the hover reveal) */
+.project-card--hero .project-content {
+    padding: 32px 34px;
+    gap: 14px;
+    justify-content: center;
+}
+
+.project-card--hero .project-name {
+    font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+}
+
+.project-card--hero .project-content-footer {
+    margin-top: 18px;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+}
+
 .project-blurb {
-    margin: 6px 0 0;
-    font-size: 0.88rem;
-    line-height: 1.5;
-    color: inherit;
-    opacity: 0.7;
-}
-
-.no-projects {
-    padding: 40px 20px;
-    background: transparent;
-    border: 2px dashed var(--border-default);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
     color: var(--fg-64);
-    font-size: 1rem;
-    text-align: center;
 }
 
-.project-card:hover {
-    background: var(--fg);
-    color: var(--fg-inverse);
+.project-role {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--fg-64);
 }
 
+.project-role .role-label {
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-48);
+    align-self: center;
+}
+
+/* ── Cover ── */
+
+/* 3:2 sits closest to the median cover aspect (0.89–2.62 across the set),
+   so the fixed box crops the least on average. */
 .project-image {
     position: relative;
-    height: 200px;
+    aspect-ratio: 3 / 2;
     overflow: hidden;
 }
 
@@ -108,12 +105,10 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     filter: grayscale(1) contrast(1.05);
-    transition: filter 0.4s ease;
-}
-
-.project-card:hover .project-image img {
-    filter: grayscale(0) contrast(1);
+    transform: scale(1);
+    transition: filter 0.4s ease, transform 0.5s ease;
 }
 
 /* Slide-up reveal: blurb + links over the cover image on hover */
@@ -123,8 +118,10 @@ img {
     right: 0;
     bottom: 0;
     padding: 14px 16px;
-    background: rgba(0, 0, 0, 0.88);
-    border-top: 1px solid var(--border-default);
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-top: 1px solid var(--border-hairline);
     color: var(--fg);
     display: flex;
     flex-direction: column;
@@ -134,6 +131,26 @@ img {
 }
 
 @media (hover: hover) {
+    .project-card:hover {
+        background: var(--surface-1);
+    }
+
+    .project-card:hover .project-image img {
+        filter: grayscale(0) contrast(1);
+        transform: scale(1.04);
+    }
+
+    .project-card:hover .project-name {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        text-decoration-thickness: 2px;
+    }
+
+    .project-card:hover .tech-icon svg,
+    .project-card:hover .link-icon svg {
+        filter: grayscale(0);
+    }
+
     .project-card:hover .project-reveal {
         transform: translateY(0);
     }
@@ -171,7 +188,7 @@ img {
     text-transform: uppercase;
     letter-spacing: 0.06em;
     text-decoration: none;
-    transition: background 0.2s ease, border-color 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .project-link-chip:hover {
@@ -197,6 +214,14 @@ img {
     line-height: 0;
 }
 
+/* Same rule as the tech icons: brand colour only shows on the hovered card. */
+.link-icon svg {
+    filter: grayscale(1);
+    transition: filter 0.3s ease;
+}
+
+/* ── Card body ── */
+
 .project-content {
     padding: 18px;
     display: flex;
@@ -205,10 +230,24 @@ img {
     flex: 1;
 }
 
-.project-header {
+.project-meta {
     display: flex;
-    flex-direction: column;
-    gap: 2px;
+    align-items: baseline;
+    gap: 8px;
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-48);
+}
+
+.project-index {
+    color: var(--fg-64);
+    font-weight: 700;
+}
+
+.meta-sep {
+    color: var(--fg-32);
 }
 
 .project-name {
@@ -216,16 +255,32 @@ img {
     font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    color: inherit;
+    color: var(--fg);
     line-height: 1.15;
 }
 
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.project-tag {
+    padding: 3px 9px;
+    border: 1px solid var(--border-hairline);
+    color: var(--fg-64);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
 /* Single-width cards: icons get the full width and run rightwards,
-   codename drops beneath — otherwise icons wrap into 3 tall rows. */
+   codename drops beneath. */
 .project-content-footer {
     margin-top: auto;
+    padding-top: 12px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -242,63 +297,59 @@ img {
     gap: 6px;
     flex-shrink: 0;
     font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: inherit;
-    opacity: 0.75;
+    color: var(--fg-48);
     white-space: nowrap;
-}
-
-.codename-label {
-    font-weight: 500;
-    opacity: 0.7;
 }
 
 .codename-slot {
     font-weight: 700;
     letter-spacing: 0.1em;
+    color: var(--fg-64);
 }
 
-/* Blank fill-in slot until a codename is set */
-.codename-slot.is-empty {
-    display: inline-block;
-    min-width: 62px;
-    border-bottom: 1px dashed currentColor;
-    opacity: 0.5;
-}
+/* ── Status badge ── */
 
 .status-container {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 12px;
+    left: 12px;
     display: inline-block;
-    padding: 3px 10px;
-    font-size: 0.7rem;
-    font-weight: 750;
+    padding: 3px 9px;
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.62rem;
+    font-weight: 600;
     white-space: nowrap;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    background: var(--bg);
+    letter-spacing: 0.12em;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     color: var(--fg);
+    border: 1px solid var(--border-hairline);
 }
 
+/* Status stays legible without colour: filled / dashed / dotted */
 .status-complete {
     background: var(--fg);
-    color: var(--bg);
+    color: var(--fg-inverse);
+    border-color: var(--fg);
 }
 
 .status-ongoing {
-    background: var(--bg);
-    color: var(--fg);
-    border: 1px dashed var(--fg);
+    border-style: dashed;
+    border-color: var(--border-strong);
 }
 
 .status-wip {
-    background: var(--bg);
+    border-style: dotted;
+    border-color: var(--border-default);
     color: var(--fg-64);
-    border: 1px dotted var(--fg-64);
 }
+
+/* ── Tech icons ── */
 
 .tech-icons {
     display: flex;
@@ -311,15 +362,23 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
-    border: 1px solid var(--border-default);
+    width: 26px;
+    height: 26px;
+    border: 1px solid var(--border-hairline);
     transition: border-color 0.2s ease;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .tech-icon:hover {
-    border-color: currentColor;
+    border-color: var(--border-strong);
+}
+
+.tech-icon-more {
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    color: var(--fg-48);
+    border-style: dotted;
 }
 
 /* Icons carry hardcoded brand colours in techIconMap — desaturate to match the
@@ -331,22 +390,89 @@ img {
     transition: filter 0.3s ease;
 }
 
-.project-card:hover .tech-icon svg {
-    filter: grayscale(0);
+/* ── Filler tiles: keep the last grid row rectangular ── */
+
+.project-slot {
+    cursor: default;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 180px;
+}
+
+.project-slot--message {
+    padding: 24px;
+    text-align: center;
+    color: var(--fg-32);
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.slot-plus {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--fg-48);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+@media (hover: hover) {
+    .project-slot--message:hover {
+        color: var(--fg-64);
+    }
+
+    .project-slot--message:hover .slot-plus {
+        color: var(--fg);
+        transform: rotate(90deg);
+    }
+}
+
+/* ── Empty state ── */
+
+.no-projects {
+    width: 100%;
+    max-width: 1200px;
+    padding: 48px 20px;
+    border-top: 1px solid var(--border-hairline);
+    border-bottom: 1px solid var(--border-hairline);
+    color: var(--fg-48);
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.no-projects p {
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .project-card--hero {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card--hero .project-image {
+        aspect-ratio: 16 / 10;
+        height: auto;
+    }
+
+    .project-card--hero .project-content {
+        padding: 24px 20px;
+    }
+
+    .project-card--hero .project-content-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
 }
 
 @media (max-width: 768px) {
-    .projects-page {
-        padding: 20px 0 60px;
-    }
-
-    .projects-header {
-        padding: 0;
-        margin: 0 auto;
-    }
-
     .project-section {
-        padding: 24px 16px 48px;
+        padding: 20px 0 48px;
     }
 
     .project-content {
@@ -354,6 +480,6 @@ img {
     }
 
     .project-name {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 }
