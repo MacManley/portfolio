@@ -44,7 +44,10 @@ function App() {
 
       <div className="content">
         <main className="main-section">
-          <AnimatePresence mode="wait">
+          {/* Router keeps the previous scroll offset, so every route change would
+              drop you mid-page. Reset once the outgoing page has finished its exit
+              animation, just before the next one mounts. */}
+          <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })}>
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<About />} />
               <Route path="/projects" element={<Projects />} />
