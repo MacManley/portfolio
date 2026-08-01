@@ -1,22 +1,27 @@
-import { useEffect, useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { TbMapPin } from 'react-icons/tb';
 import { statusLabels, statusClassMap, techIconMap } from '../data/projectsData';
-import { staggerContainer, staggerItem } from '../motion/variants';
+import { fadeUp } from '../motion/variants';
+import ProjectCover from './ProjectCover';
 import ProjectModal from './ProjectModal';
+import ProjectTimeline from './ProjectTimeline';
 import './ViewProjects.css';
 
-// Narrow cards only have room for one row of icons — the rest collapse into a +N chip.
+// Cards only have room for one row of icons — the rest collapse into a +N chip.
 const MAX_VISIBLE_TECH = 5;
 
-const pad = (value) => String(value).padStart(2, '0');
-
 const formatYear = (year) => {
-    if (!Array.isArray(year)) return year;
+    if (!Array.isArray(year)) return `${year}`;
     if (year.length === 0) return '';
     const first = Math.min(...year);
     const last = Math.max(...year);
     return first === last ? `${first}` : `${first}–${last}`;
 };
+
+// A multi-year project belongs to the year it started, so that's both its rail
+// marker and its sort key — otherwise the markers wouldn't stay in order.
+const startYear = (project) => (Array.isArray(project.year) ? Math.min(...project.year) : project.year);
 
 function TechIcons({ project, limit }) {
     const sorted = [...project.technologyUsed].sort();
@@ -44,36 +49,16 @@ function ProjectsView({ projects = [], categoryFilter = 'All' }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [markdownCache, setMarkdownCache] = useState({});
     const loadingPromises = useRef({});
-    // Callback ref, not useRef: changing the filter remounts the grid, and the
-    // observer has to follow the new node rather than the detached one.
-    const [rowNode, setRowNode] = useState(null);
-    const [columns, setColumns] = useState(1);
 
-    const noProjects = projects.length === 0;
-    const [heroProject, ...restProjects] = projects;
+    // Array.prototype.sort is stable, so the curated data order breaks year ties.
+    const sorted = useMemo(() => [...projects].sort((a, b) => startYear(b) - startYear(a)), [projects]);
+    const heroProject = useMemo(() => sorted.find((project) => project.featured) || sorted[0], [sorted]);
+    const timelineProjects = useMemo(
+        () => sorted.filter((project) => project !== heroProject),
+        [sorted, heroProject]
+    );
 
-    // The grid uses auto-fill, so the column count only exists in CSS — read it
-    // back to know how many slots the last row leaves empty.
-    useEffect(() => {
-        if (!rowNode || typeof ResizeObserver === 'undefined') {
-            return undefined;
-        }
-
-        const measure = () => {
-            const template = getComputedStyle(rowNode).gridTemplateColumns;
-            const count = template.split(' ').filter(Boolean).length;
-            if (count > 0) {
-                setColumns(count);
-            }
-        };
-
-        measure();
-        const observer = new ResizeObserver(measure);
-        observer.observe(rowNode);
-        return () => observer.disconnect();
-    }, [rowNode]);
-
-    const emptySlots = columns > 1 ? (columns - (restProjects.length % columns)) % columns : 0;
+    const noProjects = sorted.length === 0;
 
     const prefetchImages = (content) => {
         const regex = /!\[[^\]]*\]\(([^)]+)\)/g;
@@ -127,19 +112,13 @@ function ProjectsView({ projects = [], categoryFilter = 'All' }) {
         setSelectedProject(null);
     };
 
-    const renderStatus = (project) => (
-        <div className={`status-container ${statusClassMap[project.status] || ''}`}>
-            <span>{statusLabels[project.status]}</span>
-        </div>
-    );
-
     const renderLinks = (project, limit) => {
         if (project.links.length === 0) return null;
         const shown = project.links.slice(0, limit);
         const overflow = project.links.length - shown.length;
 
         return (
-            <div className="project-reveal-links">
+            <div className="project-links-row">
                 {shown.map((link, linkIndex) => (
                     <a
                         key={`${project.id}-${linkIndex}`}
@@ -165,30 +144,35 @@ function ProjectsView({ projects = [], categoryFilter = 'All' }) {
                     <p>Nothing matches that filter yet. Try another category.</p>
                 </div>
             ) : (
-                <motion.div key={categoryFilter} ref={setRowNode} className="project-row" variants={staggerContainer} initial="hidden" animate="show">
+                <div key={categoryFilter} className="project-stack">
                     <motion.div
-                        key={heroProject.id}
-                        variants={staggerItem}
+                        variants={fadeUp}
+                        initial="hidden"
+                        animate="show"
                         whileTap={{ scale: 0.995 }}
                         className="project-card project-card--hero"
                         onClick={() => handleProjectClick(heroProject)}
                         onMouseEnter={() => prefetchProject(heroProject)}>
-                        <div className="project-image">
-                            <img
-                                src={`/assets/${heroProject.id}.webp`}
-                                alt={heroProject.projectName}
-                                loading="eager"
-                                decoding="async"
-                                fetchPriority="high"
-                            />
-                            {renderStatus(heroProject)}
-                        </div>
+                        <ProjectCover project={heroProject} eager>
+                            <div className={`status-container ${statusClassMap[heroProject.status] || ''}`}>
+                                <span>{statusLabels[heroProject.status]}</span>
+                            </div>
+                        </ProjectCover>
 
                         <div className="project-content">
                             <div className="project-meta">
-                                <span className="project-index">{pad(1)}</span>
+                                <span className="project-index">Featured</span>
                                 <span className="meta-sep" aria-hidden="true">/</span>
                                 <span className="project-year">{formatYear(heroProject.year)}</span>
+                                {heroProject.location && (
+                                    <>
+                                        <span className="meta-sep" aria-hidden="true">/</span>
+                                        <span className="project-location">
+                                            <TbMapPin aria-hidden="true" />
+                                            {heroProject.location}
+                                        </span>
+                                    </>
+                                )}
                             </div>
 
                             <h3 className="project-name">{heroProject.projectName}</h3>
@@ -215,72 +199,17 @@ function ProjectsView({ projects = [], categoryFilter = 'All' }) {
                         </div>
                     </motion.div>
 
-                    {restProjects.map((project, index) => (
-                        <motion.div
-                            key={project.id}
-                            variants={staggerItem}
-                            whileTap={{ scale: 0.98 }}
-                            className="project-card"
-                            onClick={() => handleProjectClick(project)}
-                            onMouseEnter={() => prefetchProject(project)}>
-                            <div className="project-image">
-                                <img
-                                    src={`/assets/${project.id}.webp`}
-                                    alt={project.projectName}
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                                <div className="project-reveal">
-                                    <p className="project-reveal-blurb">{project.blurb}</p>
-                                </div>
-                                {renderStatus(project)}
-                            </div>
-
-                            <div className="project-content">
-                                <div className="project-meta">
-                                    <span className="project-index">{pad(index + 2)}</span>
-                                    <span className="meta-sep" aria-hidden="true">/</span>
-                                    <span className="project-year">{formatYear(project.year)}</span>
-                                </div>
-
-                                <h3 className="project-name">{project.projectName}</h3>
-
-                                {project.type && project.type.length > 0 && (
-                                    <div className="project-tags">
-                                        {project.type.map((type) => (
-                                            <span key={type} className="project-tag">{type}</span>
-                                        ))}
-                                    </div>
-                                )}
-
-                                <div className="project-content-footer">
-                                    <TechIcons project={project} limit={MAX_VISIBLE_TECH} />
-                                    {project.codename && (
-                                        <span className="project-codename">
-                                            <span className="codename-label">Project</span>
-                                            <span className="codename-slot">{project.codename}</span>
-                                        </span>
-                                    )}
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
-
-                    {Array.from({ length: emptySlots }, (_, slotIndex) => (
-                        <div
-                            key={`slot-${slotIndex}`}
-                            className={`project-card project-slot${slotIndex === 0 ? ' project-slot--message' : ''}`}
-                            aria-hidden={slotIndex === 0 ? undefined : 'true'}
-                        >
-                            {slotIndex === 0 && (
-                                <>
-                                    <span className="slot-plus" aria-hidden="true">+</span>
-                                    <span className="slot-label">More projects soon</span>
-                                </>
-                            )}
-                        </div>
-                    ))}
-                </motion.div>
+                    {timelineProjects.length > 0 && (
+                        <ProjectTimeline
+                            projects={timelineProjects}
+                            formatYear={formatYear}
+                            groupYear={startYear}
+                            renderTech={(project) => <TechIcons project={project} limit={MAX_VISIBLE_TECH} />}
+                            onSelect={handleProjectClick}
+                            onPrefetch={prefetchProject}
+                        />
+                    )}
+                </div>
             )}
 
             <ProjectModal

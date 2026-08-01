@@ -38,7 +38,7 @@ function Projects() {
         <h1 className="page-title">Projects</h1>
         <p className="page-description">
           A snapshot of software, hardware, and AI builds across hackathons,
-          student engineering, and personal product work.
+          engineering, and personal projects.
         </p>
       </div>
 
@@ -57,8 +57,7 @@ function Projects() {
               type="button"
               className={`projects-filter${selectedCategory === category ? ' is-active' : ''}`}
               aria-pressed={selectedCategory === category}
-              onClick={() => setSelectedCategory(category)}
-            >
+              onClick={() => setSelectedCategory(category)}>
               <span className="filter-label">{category}</span>
               <sup className="filter-count">{counts[category]}</sup>
               {selectedCategory === category && (
