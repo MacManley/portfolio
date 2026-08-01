@@ -2,6 +2,7 @@
    from the About timeline's left rail, same design vocabulary. */
 
 .pt-timeline {
+    scroll-margin-top: 100px;
     position: relative;
     width: 100%;
     max-width: 1200px;
@@ -237,11 +238,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    line-height: 1;
-    font-weight: 300;
     color: var(--fg-48);
-    transition: color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.pt-end-node svg {
+    width: 18px;
+    height: 18px;
+    display: block;
 }
 
 .pt-end-label {
@@ -258,7 +262,6 @@
     .pt-end:hover .pt-end-node {
         color: var(--fg);
         border-color: var(--border-strong);
-        transform: rotate(90deg);
     }
 
     .pt-end:hover .pt-end-label {

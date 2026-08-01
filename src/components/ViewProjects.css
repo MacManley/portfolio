@@ -17,6 +17,15 @@
     gap: 64px;
 }
 
+/* Jump link under the featured project — same primitive as the About hero,
+   pulled up so it reads as part of the hero block rather than its own row. */
+/* Scoped through .project-stack so it beats .hero-readmore's own align-self,
+   which lands later in the cascade. */
+.project-stack .projects-readmore {
+    align-self: center;
+    margin-top: -40px;
+}
+
 .project-card {
     box-sizing: border-box;
     background: var(--bg);

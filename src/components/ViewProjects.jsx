@@ -200,6 +200,10 @@ function ProjectsView({ projects = [], categoryFilter = 'All' }) {
                     </motion.div>
 
                     {timelineProjects.length > 0 && (
+                        <a className="hero-readmore projects-readmore" href="#timeline">Read More ↓</a>
+                    )}
+
+                    {timelineProjects.length > 0 && (
                         <ProjectTimeline
                             projects={timelineProjects}
                             formatYear={formatYear}

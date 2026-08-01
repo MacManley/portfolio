@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
-import { TbMapPin } from 'react-icons/tb';
+import { TbMapPin, TbPlus } from 'react-icons/tb';
 import { statusLabels, statusClassMap } from '../data/projectsData';
 import ProjectCover from './ProjectCover';
 import TimelineLogo from './TimelineLogo';
@@ -57,11 +57,13 @@ function TimelineCard({ project, formatYear, renderTech, onSelect, onPrefetch })
 }
 
 export default function ProjectTimeline({ projects, renderTech, formatYear, groupYear, onSelect, onPrefetch }) {
-    const timelineRef = useRef(null);
+    const entriesRef = useRef(null);
     const reduceMotion = useReducedMotion();
 
+    // Measure the rows, not the whole timeline: the track only spans .pt-entries,
+    // so including the end cap here would stop the fill short of the last node.
     const { scrollYProgress } = useScroll({
-        target: timelineRef,
+        target: entriesRef,
         offset: ['start center', 'end end'],
     });
     const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
@@ -69,10 +71,10 @@ export default function ProjectTimeline({ projects, renderTech, formatYear, grou
     let lastYear = null;
 
     return (
-        <div className="pt-timeline" ref={timelineRef}>
+        <div className="pt-timeline" id="timeline">
             {/* The rail spans the rows only — the end cap draws its own short
                 connector, so the line never runs behind the label text. */}
-            <div className="pt-entries">
+            <div className="pt-entries" ref={entriesRef}>
                 <div className="pt-track">
                     <div className="pt-track-fill" />
                     <motion.div className="pt-track-progress" style={{ height: lineHeight }} />
@@ -118,7 +120,11 @@ export default function ProjectTimeline({ projects, renderTech, formatYear, grou
             </div>
 
             <div className="pt-end">
-                <div className="pt-end-node" aria-hidden="true">+</div>
+                {/* An icon, not a "+" glyph: the character sits off its own optical
+                    centre inside a circle, the SVG doesn't. */}
+                <div className="pt-end-node" aria-hidden="true">
+                    <TbPlus />
+                </div>
                 <p className="pt-end-label">More projects soon</p>
             </div>
         </div>
