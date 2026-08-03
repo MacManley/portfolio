@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { TbMapPin, TbPlus } from 'react-icons/tb';
 import { statusLabels, statusClassMap } from '../data/projectsData';
 import ProjectCover from './ProjectCover';
@@ -58,15 +58,57 @@ function TimelineCard({ project, formatYear, renderTech, onSelect, onPrefetch })
 
 export default function ProjectTimeline({ projects, renderTech, formatYear, groupYear, onSelect, onPrefetch }) {
     const entriesRef = useRef(null);
+    const progressRef = useRef(null);
+    const endRef = useRef(null);
     const reduceMotion = useReducedMotion();
 
-    // Measure the rows, not the whole timeline: the track only spans .pt-entries,
-    // so including the end cap here would stop the fill short of the last node.
-    const { scrollYProgress } = useScroll({
-        target: entriesRef,
-        offset: ['start center', 'end end'],
-    });
-    const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+    // Driven by hand rather than useScroll: viewport-relative offsets can't
+    // complete here, because the end cap and footer sit below the rows and keep
+    // their bottom edge away from the bottom of the screen. Instead the fill is
+    // measured against the last node, so it always finishes once that node has
+    // passed 70% of the viewport — whatever is or isn't below it.
+    useEffect(() => {
+        const entries = entriesRef.current;
+        const progress = progressRef.current;
+        const end = endRef.current;
+        if (!entries || !progress) return undefined;
+
+        const update = () => {
+            const nodes = entries.querySelectorAll('.pt-row .timeline-logo');
+            const last = nodes[nodes.length - 1];
+            if (!last) return;
+
+            const entriesRect = entries.getBoundingClientRect();
+            const lastRect = last.getBoundingClientRect();
+            // Distance from the top of the rail to the last node's centre. Fixed,
+            // so scrolling doesn't change it.
+            const target = lastRect.top + lastRect.height / 2 - entriesRect.top;
+            if (target <= 0) return;
+
+            // The line the last node must rise past for the rail to read as full.
+            // On a tall screen the node stops ~460px short of the bottom, so 70%
+            // of the viewport can be a line it never crosses — hence the floor of
+            // "300px from the bottom", which it always reaches.
+            const trigger = Math.max(window.innerHeight * 0.7, window.innerHeight - 300);
+            const reached = trigger - entriesRect.top;
+            const ratio = Math.min(1, Math.max(0, reached / target));
+            progress.style.height = `${ratio * 100}%`;
+
+            // Once the rows are lit, carry the line through the end cap so the
+            // rail finishes at the "+" instead of dying into grey above it.
+            if (end) {
+                end.classList.toggle('is-lit', ratio >= 1);
+            }
+        };
+
+        update();
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        return () => {
+            window.removeEventListener('scroll', update);
+            window.removeEventListener('resize', update);
+        };
+    }, [projects]);
 
     let lastYear = null;
 
@@ -77,7 +119,7 @@ export default function ProjectTimeline({ projects, renderTech, formatYear, grou
             <div className="pt-entries" ref={entriesRef}>
                 <div className="pt-track">
                     <div className="pt-track-fill" />
-                    <motion.div className="pt-track-progress" style={{ height: lineHeight }} />
+                    <div className="pt-track-progress" ref={progressRef} />
                 </div>
 
                 {projects.map((project, index) => {
@@ -119,7 +161,7 @@ export default function ProjectTimeline({ projects, renderTech, formatYear, grou
                 })}
             </div>
 
-            <div className="pt-end">
+            <div className="pt-end" ref={endRef}>
                 {/* An icon, not a "+" glyph: the character sits off its own optical
                     centre inside a circle, the SVG doesn't. */}
                 <div className="pt-end-node" aria-hidden="true">

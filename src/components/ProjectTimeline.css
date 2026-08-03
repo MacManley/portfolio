@@ -225,10 +225,29 @@
     width: 2px;
     height: 44px;
     background: var(--border-hairline);
+    transition: background 0.4s ease;
+}
+
+/* Set once the rows' rail is full, so the line runs unbroken into the "+". */
+.pt-end.is-lit::before {
+    background: var(--fg);
+}
+
+.pt-end.is-lit .pt-end-node {
+    border-style: solid;
+    border-color: var(--fg);
+    color: var(--fg);
+}
+
+.pt-end.is-lit .pt-end-label {
+    color: var(--fg-64);
 }
 
 .pt-end-node {
     position: relative;
+    /* border-box, or the 1px border makes the circle 48px wide and its centre
+       lands a pixel off the rail in the left-aligned layout. */
+    box-sizing: border-box;
     width: 46px;
     height: 46px;
     flex-shrink: 0;
@@ -272,9 +291,11 @@
 /* ── Rail moves left below 900px ── */
 
 @media (max-width: 900px) {
+    /* Same centring as the nodes and the end connector: without the translate the
+       2px rail spans 23–25 and sits a pixel right of everything it threads. */
     .pt-track {
         left: 23px;
-        transform: none;
+        transform: translateX(-50%);
     }
 
     .pt-row.is-left,
