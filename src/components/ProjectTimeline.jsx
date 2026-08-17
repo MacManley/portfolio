@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { TbMapPin, TbPlus } from 'react-icons/tb';
 import { statusLabels, statusClassMap } from '../data/projectsData';
@@ -56,11 +56,28 @@ function TimelineCard({ project, formatYear, renderTech, onSelect, onPrefetch })
     );
 }
 
+const NARROW_QUERY = '(max-width: 900px)';
+
 export default function ProjectTimeline({ projects, renderTech, formatYear, groupYear, onSelect, onPrefetch }) {
     const entriesRef = useRef(null);
     const progressRef = useRef(null);
     const endRef = useRef(null);
     const reduceMotion = useReducedMotion();
+
+    // Below 900px every card sits on the same side of the rail at full width, so a
+    // right-side entrance would translate it past the right edge and give the page
+    // a horizontal scrollbar until the row animates in.
+    const [narrow, setNarrow] = useState(
+        () => typeof window !== 'undefined' && window.matchMedia(NARROW_QUERY).matches
+    );
+
+    useEffect(() => {
+        const query = window.matchMedia(NARROW_QUERY);
+        const onChange = (event) => setNarrow(event.matches);
+        setNarrow(query.matches);
+        query.addEventListener('change', onChange);
+        return () => query.removeEventListener('change', onChange);
+    }, []);
 
     // Driven by hand rather than useScroll: viewport-relative offsets can't
     // complete here, because the end cap and footer sit below the rows and keep
@@ -124,7 +141,8 @@ export default function ProjectTimeline({ projects, renderTech, formatYear, grou
 
                 {projects.map((project, index) => {
                     const side = index % 2 === 0 ? 'is-left' : 'is-right';
-                    const offset = reduceMotion ? 0 : (side === 'is-left' ? -32 : 32);
+                    const sideOffset = side === 'is-left' ? -32 : 32;
+                    const offset = reduceMotion ? 0 : (narrow ? -24 : sideOffset);
                     // Group by the project's start year, so a 2023–2026 project files
                     // under 2023 rather than opening a section of its own.
                     const year = groupYear(project);

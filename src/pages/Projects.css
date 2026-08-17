@@ -4,6 +4,9 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+    /* Guard against a stray sideways scroll from any transformed child mid-animation.
+       `clip` rather than `hidden` so no scroll container is created. */
+    overflow-x: clip;
 }
 
 .projects-header {
