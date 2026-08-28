@@ -1,0 +1,584 @@
+.showcase {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ── Carousel caption ── */
+
+.coverflow-slide {
+    height: 100%;
+}
+
+.showcase-feature {
+    /* Reserved height: the caption swapping between a one- and two-line blurb
+       must not shove the list up and down under the cursor. */
+    min-height: 132px;
+    padding: 22px 20px 0;
+    text-align: center;
+}
+
+.showcase-feature-inner {
+    animation: showcase-feature-in 0.35s ease both;
+}
+
+@keyframes showcase-feature-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+}
+
+.showcase-feature-name {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    font-size: 1.32rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+}
+
+.showcase-feature-blurb {
+    margin: 8px 0 0;
+    font-size: 0.92rem;
+    color: var(--fg-64);
+}
+
+.showcase-feature-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 14px 0 0;
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-48);
+}
+
+.showcase-feature-year {
+    font-variant-numeric: tabular-nums;
+}
+
+/* ── Jump link ── */
+
+.showcase-readmore {
+    display: block;
+    width: fit-content;
+    margin: 28px auto 34px;
+    padding: 9px 18px;
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--fg-64);
+    border: 1px solid var(--border-hairline);
+    border-radius: 8px;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.showcase-readmore:hover {
+    color: var(--fg);
+    border-color: var(--border-strong);
+}
+
+.showcase-readmore:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+}
+
+/* ── The list ── */
+
+.showcase-list {
+    /* Clear of the fixed header when the jump link lands here. */
+    scroll-margin-top: 90px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* Borders sit on the top of every row, so the last one needs a closing line. */
+    border-bottom: 1px solid var(--border-hairline);
+}
+
+.showcase-item {
+    margin: 0;
+}
+
+.showcase-row {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 22px 18px;
+    margin: 0;
+    background: none;
+    border: none;
+    border-top: 1px solid var(--border-hairline);
+    border-radius: 10px;
+    text-align: left;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.showcase-row:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: -2px;
+}
+
+.showcase-row.is-active {
+    background: var(--surface-1);
+}
+
+.showcase-body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.showcase-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px;
+}
+
+.showcase-name {
+    position: relative;
+    font-size: 1.18rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+}
+
+.showcase-underline {
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 1px;
+    width: 0;
+    background: var(--fg);
+    transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.showcase-row.is-active .showcase-underline {
+    width: 100%;
+}
+
+.showcase-arrow {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    color: var(--fg-48);
+    opacity: 0;
+    transform: translate(-6px, 6px);
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
+}
+
+.showcase-row.is-active .showcase-arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+    color: var(--fg);
+}
+
+.showcase-blurb {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--fg-48);
+    transition: color 0.3s ease;
+}
+
+.showcase-row.is-active .showcase-blurb {
+    color: var(--fg-80);
+}
+
+.showcase-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2px;
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-32);
+}
+
+.showcase-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* The codename is the thing worth remembering a project by, so it reads as a
+   callsign next to the title rather than trailing metadata. */
+.showcase-codename {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 9px;
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--fg-64);
+    border: 1px solid var(--border-hairline);
+    border-radius: 6px;
+    transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.showcase-row.is-active .showcase-codename {
+    color: var(--fg-inverse);
+    background: var(--fg);
+    border-color: var(--fg);
+}
+
+.showcase-year {
+    flex: none;
+    padding-top: 4px;
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.72rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.08em;
+    color: var(--fg-32);
+    transition: color 0.3s ease;
+}
+
+.showcase-row.is-active .showcase-year {
+    color: var(--fg-64);
+}
+
+/* ── Status pill (shared shape with the preview caption) ── */
+
+.showcase-status,
+.showcase-preview-status {
+    display: inline-block;
+    padding: 3px 8px;
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border: 1px solid var(--border-hairline);
+    border-radius: 6px;
+    color: var(--fg-64);
+}
+
+/* Status stays legible without colour: filled / dashed / dotted */
+.status-complete {
+    background: var(--fg);
+    color: var(--fg-inverse);
+    border-color: var(--fg);
+}
+
+.status-ongoing {
+    border-style: dashed;
+    border-color: var(--border-strong);
+    color: var(--fg);
+}
+
+.status-wip {
+    border-style: dotted;
+    border-color: var(--border-default);
+    color: var(--fg-64);
+}
+
+/* ── Row thumbnail: the fallback wherever there is no hovering cursor ── */
+
+.showcase-thumb {
+    display: none;
+    flex: none;
+    width: 96px;
+    aspect-ratio: 3 / 2;
+    border: 1px solid var(--border-hairline);
+    border-radius: 8px;
+    background: var(--surface-1);
+    overflow: hidden;
+}
+
+.showcase-thumb img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    padding: 6px;
+    box-sizing: border-box;
+    filter: grayscale(1);
+}
+
+/* ── Cursor-following preview ── */
+
+.showcase-preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 40;
+    pointer-events: none;
+    /* The transform is written per frame from JS; nothing to declare here. */
+    will-change: transform;
+}
+
+.showcase-preview-inner {
+    /* Offset from the cursor itself, kept off the follow transform so the easing
+       and the placement never fight each other. */
+    margin: -100px 0 0 24px;
+    width: 280px;
+    overflow: hidden;
+    background: var(--surface-1);
+    border: 1px solid var(--border-hairline);
+    border-radius: 12px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    transform: scale(0.9);
+    transform-origin: top left;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.showcase-preview-inner.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.showcase-preview-stack {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    background: var(--bg);
+}
+
+.showcase-preview-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: scale(1.06);
+    filter: blur(8px);
+    transition: opacity 0.45s ease, transform 0.45s ease, filter 0.45s ease;
+}
+
+.showcase-preview-slide.is-active {
+    opacity: 1;
+    transform: scale(1);
+    filter: none;
+}
+
+.showcase-preview-slide .project-image {
+    height: 100%;
+}
+
+/* Covers read in colour here — the row itself carries the restraint. */
+.showcase-preview-slide .cover-art {
+    filter: none;
+}
+
+.showcase-preview-slide .has-light-cover .cover-art {
+    filter: brightness(0.95);
+}
+
+/* The badge sits over the art rather than in the caption strip — a 280px panel
+   has no room for both it and a full row of tech icons. */
+.showcase-preview-status {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+}
+
+/* Solid plate: the default translucent fill disappears on a light cover, and
+   the filled "complete" variant disappears on a bright one. */
+.showcase-preview-slide .showcase-preview-status {
+    background: rgba(0, 0, 0, 0.88);
+    color: var(--fg);
+    border-color: var(--border-default);
+}
+
+.showcase-preview-slide .status-ongoing {
+    border-color: var(--border-strong);
+}
+
+.showcase-preview-caption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 8px 10px;
+    border-top: 1px solid var(--border-hairline);
+}
+
+.showcase-preview-caption .tech-icon svg {
+    filter: none;
+}
+
+/* ── Cover art (contained over a blurred copy of itself) ── */
+
+.project-image {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--bg);
+}
+
+.project-image img {
+    user-select: none;
+    -webkit-user-select: none;
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: grayscale(1) contrast(1.05);
+}
+
+/* Scoped through .project-image so these beat the generic `.project-image img`
+   rule above on specificity, not just source order. */
+.project-image .cover-backdrop {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    /* Scaled past the edges so the blur has no soft border of its own. */
+    transform: scale(1.25);
+    filter: blur(18px) grayscale(1) brightness(0.45);
+}
+
+.project-image .cover-art {
+    position: relative;
+    z-index: 1;
+    object-fit: contain;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Logos on white: blurring those into an ambient fill just makes grey mush, so
+   push the backdrop to near-black and let the cover read as a lit plate. */
+.has-light-cover .cover-backdrop {
+    filter: blur(22px) grayscale(1) brightness(0.14);
+}
+
+.has-light-cover .cover-art {
+    padding: 16px;
+    filter: grayscale(1) contrast(1.02) brightness(0.88);
+}
+
+/* Stand-in when a project has no cover asset yet. */
+.cover-missing {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface-1);
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--fg-32);
+}
+
+/* ── Tech icons ── */
+
+.tech-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+
+.tech-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border: 1px solid var(--border-hairline);
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.tech-icon-more {
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    color: var(--fg-48);
+    border-style: dotted;
+}
+
+.tech-icon svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* ── Empty state ── */
+
+.no-projects {
+    width: 100%;
+    padding: 48px 20px;
+    border-top: 1px solid var(--border-hairline);
+    border-bottom: 1px solid var(--border-hairline);
+    color: var(--fg-48);
+    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Without a hovering cursor the floating panel is unreachable — swap it for a
+   thumbnail in each row. */
+@media (hover: none), (max-width: 768px) {
+    .showcase-preview {
+        display: none;
+    }
+
+    .showcase-thumb {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .showcase-row {
+        gap: 14px;
+        padding: 18px 12px;
+    }
+
+    .showcase-thumb {
+        width: 76px;
+    }
+
+    .showcase-name {
+        font-size: 1.02rem;
+    }
+
+    .showcase-blurb {
+        font-size: 0.84rem;
+    }
+
+    .showcase-year {
+        font-size: 0.66rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .showcase-thumb {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .showcase-underline,
+    .showcase-arrow,
+    .showcase-preview-inner,
+    .showcase-preview-slide {
+        transition-duration: 0.01ms;
+    }
+
+    .showcase-preview-slide {
+        filter: none;
+        transform: none;
+    }
+}

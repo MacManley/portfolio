@@ -32,7 +32,7 @@ export const timelineEvents = [
   {
     year: 'September 2025 - Present',
     title: 'Payload and Avionics Engineer @ UCC RSES',
-    description: 'Programmer for Payload electronic systems, lead designer of Avionics bay, and engineer for hardware avionics.',
+    description: 'Programmer for Payload Electronic Systems, Lead 3D Designer of Avionics Bay, and Engineer for hardware avionics.',
     logo: '../assets/uccrses.webp',
   },
   {
@@ -49,14 +49,14 @@ export const timelineEvents = [
   },
   {
     year: 'September 2026 - Present',
-    title: 'SWUX Designer @ Logitech',
-    description: 'Working as a part-time contractor for the UX design team at Logitech, implementing design solutions for the next generation of PWS POVs.',
-    logo: '../assets/logitech.webp',
-  },
-  {
-    year: 'September 2026 - Present',
     title: 'Quercus Talented Students Programme @ UCC',
     description: 'Quercus Innovation and Entrepreneurship scholar.',
     logo: '../assets/quercus.webp',
+  },
+  {
+    year: 'September 2026 - Present',
+    title: 'SWUX Designer @ Logitech',
+    description: 'Working as a part-time contractor for the UX design team at Logitech, implementing design solutions for the next generation of PWS POVs.',
+    logo: '../assets/logitech.webp',
   },
 ].reverse();
