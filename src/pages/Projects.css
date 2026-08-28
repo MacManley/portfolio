@@ -14,101 +14,6 @@
     padding: 0;
 }
 
-/* ── Toolbar: count on the left, category switches on the right ── */
-
-.projects-toolbar {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 0 14px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-    border-bottom: 1px solid var(--border-hairline);
-}
-
-.projects-count {
-    margin: 0;
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--fg-48);
-}
-
-.count-current {
-    color: var(--fg);
-    font-weight: 700;
-}
-
-.count-label {
-    margin-left: 6px;
-}
-
-.projects-filters {
-    user-select: none;
-    -webkit-user-select: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 26px;
-}
-
-.projects-filter {
-    position: relative;
-    background: none;
-    border: none;
-    padding: 0 0 8px;
-    margin: 0;
-    cursor: pointer;
-    color: var(--fg-48);
-    font-family: inherit;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    transition: color 0.25s ease;
-}
-
-.projects-filter:hover {
-    color: var(--fg);
-}
-
-.projects-filter.is-active {
-    color: var(--fg);
-}
-
-.projects-filter:focus-visible {
-    outline: 2px solid var(--focus-ring);
-    outline-offset: 4px;
-}
-
-.filter-count {
-    margin-left: 5px;
-    font-size: 0.58rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--fg-32);
-    top: -0.5em;
-}
-
-.projects-filter.is-active .filter-count {
-    color: var(--fg-64);
-}
-
-.filter-underline {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 2px;
-    background: var(--fg);
-}
-
 .projects-roundup {
     padding: 0;
 }
@@ -117,22 +22,5 @@
     .projects-page {
         padding: 20px 0 60px;
         gap: 26px;
-    }
-
-    .projects-toolbar {
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        gap: 14px;
-    }
-
-    .projects-filters {
-        gap: 20px;
-        justify-content: center;
-    }
-
-    .projects-filter {
-        font-size: 0.74rem;
-        letter-spacing: 0.1em;
     }
 }

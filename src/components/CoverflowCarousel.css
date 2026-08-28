@@ -1,0 +1,138 @@
+.coverflow {
+    --cf-card: clamp(190px, 26vw, 320px);
+    position: relative;
+    width: 100%;
+}
+
+.coverflow-frame {
+    /* Vertical padding keeps the card shadows clear of the overflow clip. */
+    padding: 40px 0;
+    overflow: hidden;
+    outline: none;
+    cursor: grab;
+}
+
+.coverflow-frame:active {
+    cursor: grabbing;
+}
+
+.coverflow-frame:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: -2px;
+}
+
+.coverflow-stage {
+    position: relative;
+    /* Covers are 3:2, so the stage is as tall as one card. */
+    height: calc(var(--cf-card) / 1.5);
+    transform-style: preserve-3d;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.coverflow-card {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: var(--cf-card);
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    border: 1px solid var(--border-hairline);
+    border-radius: 14px;
+    background: var(--bg);
+    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.6);
+    will-change: transform;
+    cursor: pointer;
+}
+
+.coverflow-card .project-image {
+    height: 100%;
+}
+
+/* `object-fit: contain` letterboxes inside a full-bleed box, so a radius on that
+   box clips empty space and the picture keeps square corners. Shrink the img
+   down to the picture itself — centred by the flex parent — and the radius then
+   lands on the artwork. */
+.coverflow-card .project-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.coverflow-card .project-image .cover-art {
+    position: relative;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 0;
+    border-radius: 10px;
+}
+
+/* Off-centre cards stay monochrome; the front one resolves into colour. */
+.coverflow-card .cover-art {
+    filter: grayscale(1) contrast(1.05);
+    transition: filter 0.45s ease;
+}
+
+.coverflow-card .has-light-cover {
+    padding: 16px;
+}
+
+.coverflow-slide.is-front .cover-art {
+    filter: none;
+}
+
+/* ── Pagination ── */
+
+.coverflow-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.coverflow-dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    background: var(--fg);
+    border: none;
+    border-radius: 50%;
+    opacity: 0.24;
+    cursor: pointer;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.coverflow-dot:hover {
+    opacity: 0.6;
+}
+
+.coverflow-dot.is-active {
+    opacity: 1;
+    transform: scale(1.25);
+}
+
+.coverflow-dot:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    .coverflow {
+        --cf-card: clamp(160px, 52vw, 240px);
+    }
+
+    .coverflow-frame {
+        padding: 26px 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .coverflow-card .cover-art {
+        transition-duration: 0.01ms;
+    }
+}
