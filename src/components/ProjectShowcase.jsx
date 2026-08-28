@@ -245,8 +245,11 @@ function ProjectShowcase({ projects = [], categoryFilter = 'All' }) {
                         onActivate={handleProjectClick}
                         onFocusSlide={handleFocusSlide}
                         renderSlide={(project, isFront) => (
+                            /* Eager: the whole ring is on screen at once, and a
+                               lazy cover shows only its blurred ambient layer
+                               until it decodes. */
                             <div className={`coverflow-slide${isFront ? ' is-front' : ''}`}>
-                                <ProjectCover project={project} />
+                                <ProjectCover project={project} eager />
                             </div>
                         )}
                     />
