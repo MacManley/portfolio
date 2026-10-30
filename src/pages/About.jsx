@@ -12,12 +12,12 @@ const headlineWords = ['Engineer.', 'Builder.', 'Innovator.'];
 const quickFacts = [
   { label: 'From', value: 'Cork, Ireland' },
   { label: 'Attending', value: 'University College Cork' },
-  { label: 'Studying', value: 'Engineering (CK600)' },
-  { label: 'Currently', value: 'SWUX Design Intern @ Logitech' },
-  { label: 'Building Since', value: '2014 — first CoderDojo at 8' },
+  { label: 'Studying', value: 'E&E Engineering (CK600)' },
+  { label: 'Currently', value: 'SWUX Designer @ Logitech' },
+  { label: 'Building Since', value: '2014 - age 8' },
   { label: 'Focus', value: 'Electronics & embedded systems' },
   { label: 'Also Into', value: 'AI, rocketry, motorsport' },
-  { label: 'Awarded', value: 'CETB Dick Langford Award' },
+  { label: 'Competitions', value: 'Multi-hackathon winner' },
 ];
 
 export default function About() {

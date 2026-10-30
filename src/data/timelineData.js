@@ -26,13 +26,19 @@ export const timelineEvents = [
   {
     year: 'June 2026 - August 2026',
     title: 'SWUX Design Intern @ Logitech',
-    description: 'Interning on the Software UX design team at Logitech, conducting user research, rapid prototyping, and design for Options+ Actions ecosystem.',
+    description: 'Interned on the Software UX design team at Logitech, conducting user research, rapid prototyping, and design for Options+ Actions ecosystem.',
     logo: '../assets/logitech.webp',
+  },
+  {
+    year: 'October 2026',
+    title: 'Matheson LLP Hackathon Winner',
+    description: 'Won €5k in prize money, pitching the Career Engine, a degree-agnostic employee hiring and retention system for law firms.',
+    logo: '../assets/matheson.webp',
   },
   {
     year: 'September 2025 - Present',
     title: 'Payload and Avionics Engineer @ UCC RSES',
-    description: 'Programmer for Payload Electronic Systems, Lead 3D Designer of Avionics Bay, and Engineer for hardware avionics.',
+    description: 'Programmer for Payload Electronic Systems, Lead 3D Designer of Avionics Bay, and Engineer for Hardware Avionics.',
     logo: '../assets/uccrses.webp',
   },
   {
@@ -41,12 +47,12 @@ export const timelineEvents = [
     description: 'Studying E&E Engineering at University College Cork.',
     logo: '../assets/ucc.webp',
   },
-  {
-    year: 'June 2026 - Present',
-    title: 'ZED Campus Ambassador',
-    description: 'Ambassador for ZED IDE, your last next editor.',
-    logo: '../assets/zed.webp',
-  },
+  // {
+  //   year: 'June 2026 - Present',
+  //   title: 'ZED Campus Ambassador',
+  //   description: 'Ambassador for ZED IDE, your last next editor.',
+  //   logo: '../assets/zed.webp',
+  // },
   {
     year: 'September 2026 - Present',
     title: 'Quercus Talented Students Programme @ UCC',

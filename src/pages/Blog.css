@@ -294,7 +294,7 @@
   font-size: 1.08rem;
   overflow-wrap: anywhere;
   word-break: break-word;
-  max-width: 620px;
+  max-width: 100%;
 }
 
 /* Full-bleed elements shouldn't be pinched by the text measure */

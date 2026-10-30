@@ -12,5 +12,12 @@
     "date": "2026-06-20",
     "description": "Chatting about WWDC '26.",
     "tags": ["WWDC '26", "Apple", "iOS 26", "macOS 26"]
+  },
+  {
+    "slug": "30-10",
+    "title": "Snapmaker U1: THE Printer OAT?",
+    "date": "2026-10-30",
+    "description": "Reviewing my new Snapmaker U1.",
+    "tags": ["3D Printing", "Snapmaker", "CNC"]
   }
 ]

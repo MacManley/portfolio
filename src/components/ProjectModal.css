@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 110px 16px 40px;
+  padding: 104px 20px 36px;
   z-index: 1000;
   overflow: hidden;
 }
@@ -22,9 +22,13 @@
 .modal-content {
   background: var(--surface-1);
   border: 2px solid var(--border-solid);
-  max-width: 1120px;
-  width: min(92vw, 1120px);
-  max-height: calc(100vh - 150px);
+  /* A text dialog: capping the measure keeps body copy readable instead of
+     stretching a 1rem paragraph across the whole desktop. */
+  width: min(100%, 880px);
+  /* The overlay is a fixed, padded flex box, so its content height already
+     excludes the header gap — no viewport arithmetic that `100vh` would get
+     wrong under mobile browser chrome. */
+  max-height: 100%;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -36,8 +40,8 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 30px;
-  padding: 30px 40px 28px;
+  gap: 20px;
+  padding: 26px 32px 24px;
   border-bottom: 2px solid var(--border-solid);
 }
 
@@ -53,9 +57,12 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--fg);
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-size: clamp(1.4rem, 5vw, 2.6rem);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.1;
+  /* Monospace caps run wide; long names must break rather than push the
+     close button off the edge. */
+  overflow-wrap: anywhere;
 }
 
 .modal-header h1 {
@@ -153,6 +160,7 @@
 .modal-body {
   padding: 24px 32px 32px;
   color: var(--fg-64);
+  overscroll-behavior: contain;
   line-height: 1.6;
   overflow-y: auto;
   flex: 1;
@@ -167,7 +175,17 @@
   color: var(--fg);
   margin-top: 1.5em;
   margin-bottom: 0.5em;
+  line-height: 1.25;
 }
+
+/* The page-level heading scale (h1 at 2.5rem) is set for full-width sections
+   and overpowers a dialog column. */
+.modal-body h1 { font-size: clamp(1.4rem, 3.4vw, 1.75rem); }
+.modal-body h2 { font-size: clamp(1.2rem, 3vw, 1.45rem); }
+.modal-body h3 { font-size: clamp(1.05rem, 2.6vw, 1.2rem); }
+.modal-body h4,
+.modal-body h5,
+.modal-body h6 { font-size: 1rem; }
 
 .modal-body p {
   margin-bottom: 1em;
@@ -221,20 +239,46 @@
 
 @media (max-width: 768px) {
   .modal-overlay {
-    padding: 96px 14px 32px;
-  }
-
-  .modal-content {
-    width: 95%;
-    max-height: calc(100vh - 128px);
+    padding: 88px 14px 24px;
   }
 
   .modal-header {
-    padding: 15px 20px;
+    gap: 12px;
+    padding: 16px 16px 14px;
+  }
+
+  .modal-header-content {
+    gap: 8px;
+  }
+
+  .modal-project-info {
+    gap: 4px;
+  }
+
+  .modal-blurb {
+    font-size: 0.88rem;
+  }
+
+  .modal-role .role-label,
+  .modal-role .role-text,
+  .year-label,
+  .year-text {
+    font-size: 0.8rem;
+  }
+
+  .modal-designation {
+    font-size: 0.68rem;
+  }
+
+  .modal-close {
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
   }
 
   .modal-body {
-    padding: 20px;
+    padding: 18px 16px 24px;
+    font-size: 0.94rem;
   }
 }
 
